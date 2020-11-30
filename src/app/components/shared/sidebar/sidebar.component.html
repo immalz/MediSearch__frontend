@@ -1,0 +1,34 @@
+<div class="sidebar">
+    <h6>ADMINISTRAR</h6>
+    <div class="segmentos">
+        <a class="navi" [routerLink]="['/admin/dashboard'] " routerLinkActive="activo ">
+            <i class="fas fa-tachometer-alt "></i>Analiticas
+        </a>
+    </div>
+
+    <div class="segmentos">
+        <a class="navi">
+            <i class="fas fa-clipboard"></i>Inventario
+        </a>
+        <ul>
+            <li><a [routerLink]="['/admin/dashboard/lista-inventario'] " routerLinkActive="activo">Medicamentos</a></li>
+            <li><a [routerLink]="['/admin/dashboard/registro-inventario'] " routerLinkActive="activo">Registro Nuevo</a></li>
+        </ul>
+    </div>
+    <div class="segmentos">
+        <a class="navi">
+            <i class="fas fa-users "></i> Usuarios
+        </a>
+        <ul>
+            <li><a [routerLink]="['/admin/dashboard/lista-usuarios'] " routerLinkActive="activo">Usuarios</a></li>
+            <li><a [routerLink]="['/admin/dashboard/registro-usuario'] " routerLinkActive="activo">Registro Nuevo</a></li>
+        </ul>
+    </div>
+    <div class="segmentos">
+        <a class="navi"><i class="fas fa-briefcase-medical "></i>Farmacias</a>
+        <ul>
+            <li><a [routerLink]="['/admin/dashboard/lista-moderadores'] " routerLinkActive="activo">Farmacias</a></li>
+            <li><a [routerLink]="['/admin/dashboard/registro-moderador'] " routerLinkActive="activo">Registro Nuevo</a></li>
+        </ul>
+    </div>
+</div>

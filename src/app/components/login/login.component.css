@@ -28,7 +28,8 @@
     align-items: center;
 }
 
-.login__formulario form input[type=text] {
+.login__formulario form input[type=email],
+.login__formulario form input[type=password] {
     width: 80%;
     padding: 10px 15px;
     border-radius: 5px;

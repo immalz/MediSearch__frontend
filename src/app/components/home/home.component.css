@@ -1,37 +1,214 @@
 .home {
     width: 100%;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 116px);
 }
 
+
+/*-----------------BUSQUEDA-----------------*/
+
 .search {
-    width: 80%;
+    max-width: 600px;
     margin: auto;
-    height: 200px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .search input[type=text] {
-    width: 60%;
+    width: 100%;
+    margin: 0;
     padding: 10px 15px;
     outline: none;
     border: none;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    animation: search .5s ease;
 }
 
-.search input[type=submit] {
-    width: 120px;
-    padding: 10px 15px;
-    outline: none;
-    background: #15cfcf;
-    border: none;
-    border-radius: 0px 5px 5px 0px;
+@keyframes search {
+    from {
+        width: 0px;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+
+/*-----------------RESULTADO-----------------*/
+
+main {
+    display: flex;
+    min-height: 400px;
+    align-items: center;
+}
+
+
+/*-----------------DOCTOR-----------------*/
+
+main .main__img {
+    width: 300px;
+    position: relative;
+}
+
+main .main__img .img_animated {
+    width: 100%;
+    animation: doctor 1s;
+    position: relative;
+}
+
+@keyframes doctor {
+    from {
+        opacity: 0;
+        transform: translateX(-100%)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+main .main__img .dialog {
+    position: absolute;
+    right: -10px;
+    top: -40px;
+    width: 200px;
+    height: 80px;
+    background: #2aaccc;
+    border-radius: 25px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    animation: 1s dialog;
 }
 
-.result {
-    width: 80%;
-    margin: auto;
+@keyframes dialog {
+    from {
+        opacity: 0;
+        transform: scale(0)
+    }
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
 }
+
+main .main__img .dialog::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -35px;
+    left: 25px;
+    background: transparent;
+    border-top: 20px solid #2aaccc;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+main .main__img .dialog p {
+    margin: 0;
+}
+
+
+/*-----------------BUSQUEDA-----------------*/
+
+.filter {
+    width: 80%;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    margin: 0 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+}
+
+.filter::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.filter::-webkit-scrollbar-thumb {
+    background: lightblue;
+    border-radius: 10px;
+}
+
+tbody tr th {
+    font-weight: 200;
+}
+
+tbody tr .options {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+tbody tr .options a .fas {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+tbody tr .options .map {
+    color: #E74A43;
+}
+
+tbody tr .options .cart {
+    color: #272727;
+}
+
+
+/*-----------------TOOLTIP-----------------*/
+
+.tool {
+    text-decoration: none;
+    position: relative;
+}
+
+.tool span {
+    display: none;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    color: black;
+    background: white;
+}
+
+.tool span img {
+    float: left;
+    width: 100%;
+    object-fit: cover;
+    transform: scale(1.1)
+}
+
+.tool:hover span {
+    border-radius: 5px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: auto;
+    width: 120px;
+    height: 120px;
+    margin-top: 12px;
+    margin-left: 100px;
+    overflow: hidden;
+    padding: 1px;
+    background: #fff;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/*-----------------RESPONSIVE-----------------*/

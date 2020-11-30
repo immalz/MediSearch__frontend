@@ -1,18 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav color="primary" class="navbar navbar-expand-lg navbar-dark ">
     <a class="navbar-brand" routerLink="/">MediSearch</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto animated fadeIn">
+            <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/acceder" routerLinkActive="active">Acceder</a>
+                </li>
+            </ng-container>
+            <ng-template #loggedIn>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/perfil" routerLinkActive="active">perfil</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/admin/moderador" routerLinkActive="active">Moderador</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="authService.loggout()">
+                        <mat-icon>exit_to_app</mat-icon>
+                    </a>
+                </li>
+            </ng-template>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Panel Admin</a>
+                <a class="nav-link" href="#">
+                    <mat-icon>shopping_cart</mat-icon>
+                </a>
             </li>
         </ul>
-        <ul class="navbar-nav mr-0">
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="/acceder" routerLinkActive="active">Acceder</a>
-            </li>
-        </ul>
+
     </div>
 </nav>

@@ -1,24 +1,68 @@
-<div class="home">
+<app-navbar></app-navbar>
+<div class="espacio"></div>
+<div class="home animated fadeIn">
+
     <div class="search">
-        <input type="text" placeholder="Buscar un medicamento..." required>
-        <input type="submit">
+        <input type="text" #name (keyup)="searchMedicine(name.value)" placeholder="Buscar un medicamento..." required>
     </div>
-    <div class="result">
-        <div class="result__table">
+    <main>
+        <div class="main__img">
+            <div class="dialog">
+                <p>¿Estas buscando algun medicamento?</p>
+            </div>
+            <img class="img_animated" src="assets/images/dr.png">
+        </div>
+        <div class="filter">
             <table class="table">
-                <thead class="thead-dark">
+                <thead>
                     <tr>
-                        <th>Imagen</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
+                        <th>Categoria</th>
                         <th>Tipo</th>
-                        <th>Farmacia</th>
                         <th>Precio</th>
-                        <th>Comprar</th>
+                        <th>Farmacia</th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody class="animated fadeIn" *ngIf="!searching">
+                    <tr *ngFor="let medicine of medicines">
+                        <th class="tool">
+                            {{medicine.name}}
+                            <span class="animated fadeIn">
+                                <img [src]="medicine.imgURL">
+                            </span>
+                        </th>
+                        <th>{{medicine.category}}</th>
+                        <th>{{medicine.type}}</th>
+                        <th>S/{{medicine.price}}</th>
+                        <th>{{medicine.company}}</th>
+                        <th class="options">
+                            <a href="#"><i class="fas map fa-map-marker-alt"></i></a>
+                            <a href="#"><i class="fas cart fa-cart-plus"></i></a>
+                        </th>
+                    </tr>
+                </tbody>
+                <tbody class="animated fadeIn" *ngIf="searching">
+                    <tr *ngFor="let medicine of medicineFound">
+                        <th class="tool">
+                            {{medicine.name}}
+                            <span class="animated fadeIn">
+                                <img [src]="medicine.imgURL">
+                            </span>
+                        </th>
+                        <th>{{medicine.category}}</th>
+                        <th>{{medicine.type}}</th>
+                        <th>S/{{medicine.price}}</th>
+                        <th>{{medicine.company}}</th>
+                        <th class="options">
+                            <a href="#"><i class="fas map fa-map-marker-alt"></i></a>
+                            <a href="#"><i class="fas cart fa-cart-plus"></i></a>
+                        </th>
+                    </tr>
+                </tbody>
             </table>
         </div>
-    </div>
+    </main>
+
+
 </div>

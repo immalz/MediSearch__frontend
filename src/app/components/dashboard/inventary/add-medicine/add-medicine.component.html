@@ -1,0 +1,27 @@
+<h1 class="animated fadeIn">NUEVO MEDICAMENTO</h1>
+<div class="row" *ngIf="!medicine; else medicine_content">
+    <h1>Cargando...</h1>
+</div>
+
+<ng-template #medicine_content>
+
+    <main class="main animated fadeIn">
+        <form (submit)="uploadMedicine()">
+            <div class="ipnt">
+                <input type="text" name="name" [(ngModel)]="medicine.name" class="form-control" placeholder="Nombre" required>
+                <input type="text" name="category" [(ngModel)]="medicine.category" class="form-control" placeholder="Categoria" required>
+                <input type="text" name="type" [(ngModel)]="medicine.type" class="form-control" placeholder="Tipo" required>
+                <input type="text" name="company" [(ngModel)]="medicine.company" class="form-control" placeholder="Farmacia" required>
+                <input type="number" name="price" [(ngModel)]="medicine.price" class="form-control" placeholder="S/" required>
+                <input type="text" name="imgURL" [(ngModel)]="medicine.imgURL" class="form-control" placeholder="URL medicamento" required>
+            </div>
+
+            <div class="img">
+                <input type="file" class="d-none" name="image" (change)="onMedicineSelected($event)" #photoInput>
+                <img [src]="photoSelected || 'assets/images/no-image.png'" alt="No image" (click)="photoInput.click()">
+                <button type="submit" class="btn btn-success btn-block">Agregar</button>
+            </div>
+        </form>
+    </main>
+
+</ng-template>
