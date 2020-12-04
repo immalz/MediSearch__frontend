@@ -1,1 +1,28 @@
-<p class="animated fadeIn">mods works!</p>
+<div class="main animated fadeIn">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Correo Electronico</th>
+                <th>Ubicacion</th>
+                <th>Roles</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let pharmacy of pharmacys; let i = index">
+                <th>{{i + 1}}</th>
+                <th>{{pharmacy.username}}</th>
+                <th>{{pharmacy.email}}</th>
+                <th>Calle 123 Puente Piedra</th>
+                <th>{{pharmacy.roles}}</th>
+                <th>
+                    <a href="#">
+                        <mat-icon>open_in_new</mat-icon>
+                    </a>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>

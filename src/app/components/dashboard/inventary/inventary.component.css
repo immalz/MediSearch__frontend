@@ -45,6 +45,10 @@ tbody tr .options a:nth-child(1) {
     height: 100%;
 }
 
+.bt {
+    cursor: pointer;
+}
+
 
 /*-----------------TOOLTIP-----------------*/
 

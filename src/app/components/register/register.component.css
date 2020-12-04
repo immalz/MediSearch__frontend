@@ -9,6 +9,7 @@
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    flex-direction: column;
 }
 
 .login__formulario {

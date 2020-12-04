@@ -1,3 +1,8 @@
-<div class="perfil animated fadeIn">
-
+<div class="espacio"></div>
+<div class="main animated fadeIn">
+    <h2>Farmacia Nueva</h2>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    <button mat-raised-button color="primary" (click)="getCurrentPosition()">BUSCAR MI DIRECCION</button>
 </div>

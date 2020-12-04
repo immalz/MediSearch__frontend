@@ -1,0 +1,40 @@
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    background: #B5C6BD;
+}
+
+.main::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background: #303030;
+    border-radius: 5px;
+}
+
+img {
+    width: 400px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.example-card {
+    max-width: 400px;
+    margin: 20px 40px;
+}
+
+.example-card:hover {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.example-header-image {
+    background-image: url('https://www.flaticon.es/svg/static/icons/svg/1145/1145798.svg');
+    background-size: cover;
+}

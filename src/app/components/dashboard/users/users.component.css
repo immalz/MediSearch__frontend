@@ -38,3 +38,8 @@ tbody tr .options a {
 tbody tr .options a:nth-child(1) {
     margin-right: 10px;
 }
+
+.bt {
+    cursor: pointer;
+    margin: 0 5px;
+}

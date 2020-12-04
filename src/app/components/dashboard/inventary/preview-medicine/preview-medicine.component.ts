@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class PreviewMedicineComponent implements OnInit {
   id: string;
+  imagePath = 'http://localhost:4000/';
   medicine: Medicina;
 
   constructor(
@@ -48,7 +49,6 @@ export class PreviewMedicineComponent implements OnInit {
       if (result.value) {
         this.ms.deleteMedicine(id).subscribe(
           (res) => {
-            console.log(res);
             this.router.navigate(['/admin/dashboard/lista-inventario']);
           },
           (err) => {
@@ -74,7 +74,6 @@ export class PreviewMedicineComponent implements OnInit {
       this.ms.updateMedicine(this.id, name.value, category.value, type.value, company.value, price.value)
         .subscribe(
           res => {
-            console.log(res);
             this.router.navigate(['/admin/dashboard/lista-inventario']);
           },
           err => { console.log(err); }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {MedicinesService} from '../../../../services/medicines.service';
+import { Router } from '@angular/router';
+import { MedicinesService } from '../../../../services/medicines.service';
 
 import Medicine from '../../../../interfaces/Medicine';
 import Swal from 'sweetalert2';
@@ -16,18 +16,16 @@ interface HtmlInputEvent extends Event {
   styleUrls: ['./add-medicine.component.css']
 })
 export class AddMedicineComponent implements OnInit {
-
+  imagePath = 'http://localhost:4000/';
   medicine: Medicine = {
     name: '',
     category: '',
     type: '',
     company: '',
-    price:  0,
-    imgURL: ''
+    price: 0,
   };
-
-  photoSelected: string | ArrayBuffer;
   file: File;
+  photoSelected: string | ArrayBuffer;
 
   constructor(private ms: MedicinesService, private router: Router) { }
 
@@ -46,23 +44,15 @@ export class AddMedicineComponent implements OnInit {
 
   // tslint:disable-next-line: max-line-length
   uploadMedicine(): any {
-    Swal.fire(
-      'Felicidades!',
-      'El medicamento se ha agregado correctamente!',
-      'success'
-    ).then(result => {
-      if (result.value) {
-        this.ms.createMedicine(this.medicine)
-        .subscribe(
-          res => {
-            console.log(res);
-            this.router.navigate(['/admin/dashboard/lista-inventario']);
-          },
-          err => console.log(err)
-        );
-        return false;
-      }
-    });
-  }
 
+    this.ms.createMedicine(this.medicine, this.file)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/admin/dashboard/lista-inventario']);
+        },
+        err => console.log(err)
+      );
+    return false;
+  }
 }

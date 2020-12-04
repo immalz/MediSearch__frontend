@@ -14,12 +14,6 @@
     font-size: 15px;
 }
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
-}
-
 .sidebar .segmentos {
     width: 100%;
     display: flex;

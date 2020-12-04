@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MedicinesService } from '../../../services/medicines.service';
 import {Router} from '@angular/router';
 
@@ -7,16 +7,22 @@ import {Router} from '@angular/router';
   templateUrl: './inventary.component.html',
   styleUrls: ['./inventary.component.css']
 })
-export class InventaryComponent implements OnInit {
+export class InventaryComponent implements OnInit, OnDestroy {
 
   constructor(private ms: MedicinesService, private router: Router) { }
+
   medicines = [];
 
+  obtenerDatos: any;
+
+  imagePath = 'http://localhost:4000/';
 
   ngOnInit(): void {
-    this.ms.getMedicines()
+    this.obtenerDatos = this.ms.getMedicines()
       .subscribe(
-        res => {this.medicines = res; },
+        res => {
+          this.medicines = res;
+        },
         err => { console.log(err); }
       );
   }
@@ -29,11 +35,14 @@ export class InventaryComponent implements OnInit {
     this.ms.deleteMedicine(id)
     .subscribe(
       res => {
-        console.log(res);
         this.router.navigate(['/admin/dashboard']);
       },
       err => {console.log(err); }
     );
   }
 
+
+  ngOnDestroy(): any {
+    this.obtenerDatos.unsubscribe();
+  }
 }

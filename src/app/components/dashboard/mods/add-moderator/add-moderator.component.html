@@ -1,1 +1,37 @@
-<p class="animated fadeIn">add-moderator works!</p>
+<div class="main animated fadeIn">
+    <img class="bgicon" src="assets/images/ambulance.gif">
+    <form class="form" [formGroup]="signUpPharmacy" (ngSubmit)="send(signUpPharmacy.value)">
+        <h3>NUEVA FARMARCIA</h3>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="username" type="text" matInput placeholder="Farmacia" autocomplete="off">
+                <mat-icon matSuffix>supervised_user_circle</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Correo</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="Correo Electronico" autocomplete="off">
+                <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Contraseña</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Contraseña" autocomplete="off">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Repetir Contraseña</mat-label>
+                <input type="password" matInput placeholder="Repetir Contraseña" autocomplete="off">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <button [disabled]="signUpPharmacy.invalid" type="submit" mat-raised-button color="primary" class="btn-block">Registrar</button>
+    </form>
+</div>

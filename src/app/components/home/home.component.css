@@ -196,18 +196,17 @@ tbody tr .options .cart {
     position: absolute;
     justify-content: center;
     align-items: center;
-    top: 0;
+    top: -120px;
     left: 0;
     z-index: 1000;
     width: auto;
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     margin-top: 12px;
     margin-left: 100px;
     overflow: hidden;
     padding: 1px;
-    background: #fff;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0);
 }
 
 

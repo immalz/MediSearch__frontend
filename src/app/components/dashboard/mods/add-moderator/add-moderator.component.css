@@ -1,0 +1,49 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: #B5C6BD;
+    position: relative;
+}
+
+.main .bgicon {
+    width: 300px;
+    position: absolute;
+    z-index: -1;
+    animation: ambulance 7s infinite;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+@keyframes ambulance {
+    0% {
+        transform: translateX(-120%);
+    }
+    50% {
+        transform: translateX(120%) scaleX(-1);
+        filter: FlipH;
+    }
+    100% {
+        transform: translateX(-120%);
+    }
+}
+
+.main .form {
+    width: 420px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+.main .form .mat-form-field {
+    width: 350px;
+}

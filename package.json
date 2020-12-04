@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "~10.2.0",
     "@angular/cdk": "^10.2.7",
     "@angular/common": "~10.2.0",
@@ -21,6 +22,7 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "@types/googlemaps": "^3.39.13",
     "bootswatch": "^4.5.3",
     "ng-circle-progress": "^1.6.0",
     "rxjs": "~6.6.0",

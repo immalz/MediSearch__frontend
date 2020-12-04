@@ -14,5 +14,19 @@
 p {
     font-family: 'Montserrat', sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+th::selection,
+p::selection {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}

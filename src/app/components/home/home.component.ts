@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
 
   searching = false;
 
+  imagePath = 'http://localhost:4000/';
+
   ngOnInit(): void {
 
     this.ms.getMedicines()

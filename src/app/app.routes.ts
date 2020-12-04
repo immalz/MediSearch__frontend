@@ -11,9 +11,12 @@ import { ModsComponent } from './components/dashboard/mods/mods.component';
 import { InventaryComponent } from './components/dashboard/inventary/inventary.component';
 import { AdminboardComponent } from './components/dashboard/adminboard/adminboard.component';
 import { AddMedicineComponent } from './components/dashboard/inventary/add-medicine/add-medicine.component';
+import { PreviewMedicineComponent } from './components/dashboard/inventary/preview-medicine/preview-medicine.component';
 import { AddUserComponent } from './components/dashboard/users/add-user/add-user.component';
 import { AddModeratorComponent } from './components/dashboard/mods/add-moderator/add-moderator.component';
-import { PreviewMedicineComponent } from './components/dashboard/inventary/preview-medicine/preview-medicine.component';
+import { PreviewModsComponent } from './components/dashboard/mods/preview-mods/preview-mods.component';
+import { ReqNewModsComponent } from './components/dashboard/mods/req-new-mods/req-new-mods.component';
+import { RegisterPharmsComponent } from './components/register-pharms/register-pharms.component';
 
 
 export const ROUTES: Routes = [
@@ -29,6 +32,8 @@ export const ROUTES: Routes = [
 
             {path: 'lista-moderadores', component: ModsComponent},
             {path: 'registro-moderador', component: AddModeratorComponent},
+            {path: 'validar-moderador', component: ReqNewModsComponent},
+            {path: 'datos-moderador/:id', component: PreviewModsComponent},
 
             {path: 'lista-inventario', component: InventaryComponent},
             {path: 'registro-inventario', component: AddMedicineComponent},
@@ -42,6 +47,7 @@ export const ROUTES: Routes = [
     },
     {path: 'acceder', component: LoginComponent},
     {path: 'registro', component: RegisterComponent},
+    {path: 'unetenos', component: RegisterPharmsComponent},
     {path: 'perfil', component: PerfilComponent},
     {path: '', pathMatch: 'full', redirectTo: 'inicio'},
     {path: '**', pathMatch: 'full', redirectTo: 'inicio'},

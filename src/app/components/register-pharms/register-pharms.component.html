@@ -1,0 +1,99 @@
+<div class="espacio"></div>
+
+<div class="main animated fadeIn">
+    <img class="bg" src="assets/images/ambulange-nobg.gif">
+    <mat-horizontal-stepper labelPosition="bottom">
+
+        <mat-step [stepControl]="GeneralFormGroup">
+            <form [formGroup]="GeneralFormGroup">
+                <ng-template matStepLabel>Datos Basicos</ng-template>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="MiBotica" formControlName="name" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Correo Electronico</mat-label>
+                    <input matInput placeholder="example@example.com" formControlName="email" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Celular</mat-label>
+                    <input matInput placeholder="922752910" formControlName="phone" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Foto Referencial</mat-label>
+                    <input matInput type="email" placeholder="https://mifoto.jpg" formControlName="photo" required>
+                </mat-form-field>
+                <div>
+                    <button type="button" [disabled]="GeneralFormGroup.invalid" mat-button color="primary" matStepperNext>Siguiente</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="PrivateFormGroup">
+
+            <form [formGroup]="PrivateFormGroup">
+                <ng-template matStepLabel>Datos de la Empresa</ng-template>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Razon Social</mat-label>
+                    <input matInput placeholder="Mi Empresa S.A.C" formControlName="razonSocial" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy">
+                    <mat-label>RUC</mat-label>
+                    <input matInput placeholder="1798285937001 " formControlName="RUC" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Gerente</mat-label>
+                    <input matInput placeholder="Nombre Completo" formControlName="nameOwner" required>
+                </mat-form-field>
+                <br>
+                <br>
+                <div>
+                    <button type="button" mat-button matStepperPrevious>Atras</button>
+                    <button type="button" [disabled]="PrivateFormGroup.invalid" mat-button matStepperNext>Siguiente</button>
+                </div>
+            </form>
+
+        </mat-step>
+
+        <mat-step [stepControl]="AddressFormGroup">
+            <form [formGroup]="AddressFormGroup">
+                <ng-template matStepLabel>Ubicación</ng-template>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput placeholder="Jr. 28 de Julio" formControlName="address" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Latitud</mat-label>
+                    <input matInput placeholder="-1.454733" formControlName="latitude" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Longitud</mat-label>
+                    <input matInput placeholder="-3.57321" formControlName="length" required>
+                </mat-form-field>
+
+                <div>
+                    <button type="button" mat-button matStepperPrevious>Atras</button>
+                    <button [disabled]="AddressFormGroup.invalid" type="submit" (click)="save()" mat-button matStepperNext>Enviar</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <!-- <mat-step>
+
+            <ng-template matStepLabel>Direccion</ng-template>
+            <h2>Felicidades!</h2>
+            <p>Has completado todos los pasos con exito!</p>
+            <button mat-button routerLink="/ ">Pagina principal</button>
+
+        </mat-step> -->
+
+    </mat-horizontal-stepper>
+</div>

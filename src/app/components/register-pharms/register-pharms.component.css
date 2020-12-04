@@ -1,0 +1,30 @@
+.main {
+    width: 100%;
+    height: calc(100vh - 116px);
+    position: relative;
+}
+
+.mat-stepper-horizontal {
+    width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.0);
+}
+
+.main form {
+    width: 600px;
+    margin: auto;
+    padding: 10px;
+}
+
+mat-form-field,
+input {
+    width: 80%;
+}
+
+.bg {
+    position: absolute;
+    width: 200px;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+}

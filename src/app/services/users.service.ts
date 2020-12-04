@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 export class UsersService {
 
   private URL = 'http://localhost:4000/api/usuario';
+  private pharmURL = 'http://localhost:4000/api/farmacias';
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +20,17 @@ export class UsersService {
 
   getRoles(id: string): any {
     return this.http.get<any>(this.URL + `/${id}`);
+  }
+
+  getPharmacy(): any {
+    return this.http.get(this.pharmURL);
+  }
+  getPharmacyCount(): any {
+    return this.http.get(this.pharmURL + '/count');
+  }
+
+  deleteUser(id: string): any {
+    return this.http.delete(this.URL + `/${id}`);
   }
 
 

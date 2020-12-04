@@ -11,7 +11,7 @@ import User from '../../interfaces/User';
 export class RegisterComponent implements OnInit {
 
 
-  user: User ={
+  user: User = {
     username: '',
     email: '',
     password: ''

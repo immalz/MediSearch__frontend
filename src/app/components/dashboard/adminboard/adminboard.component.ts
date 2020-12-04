@@ -14,6 +14,7 @@ export class AdminboardComponent implements OnInit {
 
   countUser: any;
   countMedicine: any;
+  countPharmacy: any;
 
   ngOnInit(): void {
 
@@ -34,5 +35,14 @@ export class AdminboardComponent implements OnInit {
       },
       err => {console.log(err); }
     );
+
+    this.us.getPharmacyCount()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.countPharmacy = res;
+        },
+        err => {console.log(err); }
+      );
   }
 }

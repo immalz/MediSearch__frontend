@@ -17,7 +17,7 @@
                 <th class="tool">
                     {{medicine.name}}
                     <span class="animated fadeIn">
-                        <img [src]="medicine.imgURL">
+                        <img [src]="imagePath + medicine.imgURL">
                     </span>
                 </th>
                 <th>{{medicine.category}}</th>
@@ -25,7 +25,9 @@
                 <th>S/{{medicine.price}}</th>
                 <th>{{medicine.company}}</th>
                 <th>
-                    <a class="btn btn-success" (click)="selectedMedicine(medicine._id)">Actualizar</a>
+                    <a (click)="selectedMedicine(medicine._id)">
+                        <mat-icon class="bt" color="primary">open_in_new</mat-icon>
+                    </a>
                 </th>
             </tr>
         </tbody>

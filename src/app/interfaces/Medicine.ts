@@ -3,8 +3,8 @@ interface Medicine {
     category: string;
     company: string;
     type: string;
-    price?: number;
-    imgURL: string;
+    price: any;
+    imgURL?: File;
 }
 
 export default Medicine;

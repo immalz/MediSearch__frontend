@@ -1,8 +1,17 @@
-.perfil {
+agm-map {
+    width: 600px;
+    height: 400px;
+}
+
+.main {
     width: 100%;
-    height: calc(100vh - 60px);
-    background: url('../../../assets/images/perfil.jpg');
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    height: calc(100vh - 116px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    margin: 20px 0;
 }
