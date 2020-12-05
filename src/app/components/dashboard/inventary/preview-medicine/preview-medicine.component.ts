@@ -65,13 +65,13 @@ export class PreviewMedicineComponent implements OnInit {
   }
 
   // tslint:disable-next-line: max-line-length
-  updateMedicine(name: HTMLInputElement, category: HTMLInputElement, type: HTMLInputElement, company: HTMLInputElement, price: HTMLInputElement): any {
+  updateMedicine(name: HTMLInputElement, category: HTMLInputElement, type: HTMLInputElement, price: HTMLInputElement): any {
     Swal.fire(
       'Actualizado!',
       'El medicamento ha sido actualizado correctamente',
       'success'
     ).then(result => {
-      this.ms.updateMedicine(this.id, name.value, category.value, type.value, company.value, price.value)
+      this.ms.updateMedicine(this.id, name.value, category.value, type.value, price.value)
         .subscribe(
           res => {
             this.router.navigate(['/admin/dashboard/lista-inventario']);

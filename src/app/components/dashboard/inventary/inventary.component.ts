@@ -21,6 +21,7 @@ export class InventaryComponent implements OnInit, OnDestroy {
     this.obtenerDatos = this.ms.getMedicines()
       .subscribe(
         res => {
+          console.log(res);
           this.medicines = res;
         },
         err => { console.log(err); }

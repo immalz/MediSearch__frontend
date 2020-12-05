@@ -35,10 +35,10 @@
                         <th>{{medicine.category}}</th>
                         <th>{{medicine.type}}</th>
                         <th>S/{{medicine.price}}</th>
-                        <th>{{medicine.company}}</th>
+                        <th>{{medicine.company.name}}</th>
                         <th class="options">
-                            <a href="#"><i class="fas map fa-map-marker-alt"></i></a>
-                            <a href="#"><i class="fas cart fa-cart-plus"></i></a>
+                            <button mat-button (click)="openMap(medicine.company.latitude, medicine.company.length, medicine.company.name, medicine.company.imgURL)"><mat-icon> directions</mat-icon></button>
+                            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
                         </th>
                     </tr>
                 </tbody>
@@ -53,16 +53,30 @@
                         <th>{{medicine.category}}</th>
                         <th>{{medicine.type}}</th>
                         <th>S/{{medicine.price}}</th>
-                        <th>{{medicine.company}}</th>
+                        <th>{{medicine.company.name}}</th>
                         <th class="options">
-                            <a href="#"><i class="fas map fa-map-marker-alt"></i></a>
-                            <a href="#"><i class="fas cart fa-cart-plus"></i></a>
+
+                            <button mat-button ng-click="openMap(medicine.company.latitude, medicine.company.length, medicine.company.name, medicine.company.imgURL)">
+                                <mat-icon> directions</mat-icon>
+                            </button>
+
+                            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
                         </th>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <hr>
+
     </main>
+
+
+    <div class="main animated fadeIn">
+        <h2>Mi Farmacia</h2>
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+    </div>
 
 
 </div>

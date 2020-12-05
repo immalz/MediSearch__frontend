@@ -1,0 +1,14 @@
+<div class="main animated fadeIn">
+    <h2>{{maps.nameCompany}}</h2>
+    <agm-map [latitude]="maps.lat" [longitude]="maps.lng" [zoom]="zoom">
+        <agm-marker [latitude]="maps.lat" [longitude]="maps.lng">
+            <agm-info-window>
+                <p>{{maps.nameCompany}}</p>
+                <img [src]="maps.imgURL" class="imgURL">
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
+</div>
+
+
+<!-- iconUrl="{url: assets/images/marcador.png, scaleSize: { height: 15, width: 20}}" -->

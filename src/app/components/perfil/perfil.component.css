@@ -3,6 +3,10 @@ agm-map {
     height: 400px;
 }
 
+button {
+    margin: 20px 0;
+}
+
 .main {
     width: 100%;
     height: calc(100vh - 116px);
@@ -10,8 +14,4 @@ agm-map {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-button {
-    margin: 20px 0;
 }

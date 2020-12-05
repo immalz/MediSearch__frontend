@@ -15,7 +15,10 @@ export class ModsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.obtenerDatos = this.us.getPharmacy()
     .subscribe(
-      res => {this.pharmacys = res; },
+      res => {
+        this.pharmacys = res;
+        console.log(this.pharmacys);
+      },
         err => { console.log(err); }
     );
   }

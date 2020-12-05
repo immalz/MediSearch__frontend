@@ -13,10 +13,10 @@
         <tbody>
             <tr class="table-light" *ngFor="let pharmacy of pharmacys; let i = index">
                 <th>{{i + 1}}</th>
-                <th>{{pharmacy.username}}</th>
+                <th>{{pharmacy.name}}</th>
                 <th>{{pharmacy.email}}</th>
-                <th>Calle 123 Puente Piedra</th>
-                <th>{{pharmacy.roles}}</th>
+                <th>{{pharmacy.address}}</th>
+                <th>{{pharmacy.roles[0].name}}</th>
                 <th>
                     <a href="#">
                         <mat-icon>open_in_new</mat-icon>

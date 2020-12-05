@@ -1,35 +1,51 @@
 <div class="sidebar">
-    <h6>ADMINISTRAR</h6>
-    <div class="segmentos">
-        <a class="navi" [routerLink]="['/admin/dashboard'] " routerLinkActive="activo ">
-            <i class="fas fa-tachometer-alt "></i>Analiticas
-        </a>
+    <div>
+        <h6>ADMINISTRAR</h6>
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>dashboard</mat-icon> Analiticas
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <a [routerLink]="['/admin/dashboard'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Control del sistema</a>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>list_alt</mat-icon> Inventario
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <li><a [routerLink]="['/admin/dashboard/lista-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Medicamentos</a></li>
+                <li><a [routerLink]="['/admin/dashboard/registro-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>people</mat-icon> Usuarios
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <li><a [routerLink]="['/admin/dashboard/lista-usuarios'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Usuarios</a></li>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>local_hospital</mat-icon> Farmacias
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <li><a [routerLink]="['/admin/dashboard/lista-moderadores'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Farmacias</a></li>
+                <li><a [routerLink]="['/admin/dashboard/validar-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Peticiones Entrantes</a></li>
+                <li><a [routerLink]="['/admin/dashboard/registro-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
 
-    <div class="segmentos">
-        <a class="navi">
-            <i class="fas fa-clipboard"></i>Inventario
-        </a>
-        <ul>
-            <li><a [routerLink]="['/admin/dashboard/lista-inventario'] " routerLinkActive="activo">Medicamentos</a></li>
-            <li><a [routerLink]="['/admin/dashboard/registro-inventario'] " routerLinkActive="activo">Registro Nuevo</a></li>
-        </ul>
-    </div>
-    <div class="segmentos">
-        <a class="navi">
-            <i class="fas fa-users "></i> Usuarios
-        </a>
-        <ul>
-            <li><a [routerLink]="['/admin/dashboard/lista-usuarios'] " routerLinkActive="activo">Usuarios</a></li>
-            <!-- <li><a [routerLink]="['/admin/dashboard/registro-usuario'] " routerLinkActive="activo">Registro Nuevo</a></li> -->
-        </ul>
-    </div>
-    <div class="segmentos">
-        <a class="navi"><i class="fas fa-briefcase-medical "></i>Farmacias</a>
-        <ul>
-            <li><a [routerLink]="['/admin/dashboard/lista-moderadores'] " routerLinkActive="activo">Farmacias</a></li>
-            <li><a [routerLink]="['/admin/dashboard/validar-moderador'] " routerLinkActive="activo">Peticiones Entrantes</a></li>
-            <li><a [routerLink]="['/admin/dashboard/registro-moderador'] " routerLinkActive="activo">Registro Nuevo</a></li>
-        </ul>
+    <div>
+        <button mat-raised-button color="warn" (click)="authService.loggout()">
+            Salir
+        </button>
     </div>
 </div>

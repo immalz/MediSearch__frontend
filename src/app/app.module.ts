@@ -41,6 +41,7 @@ import { PreviewMedicineComponent } from './components/dashboard/inventary/previ
 import { AddUserComponent } from './components/dashboard/users/add-user/add-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterPharmsComponent } from './components/register-pharms/register-pharms.component';
+import { MapsComponent } from './components/maps/maps.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { RegisterPharmsComponent } from './components/register-pharms/register-p
     PreviewMedicineComponent,
     PreviewModsComponent,
     ReqNewModsComponent,
-    RegisterPharmsComponent
+    RegisterPharmsComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,7 @@ import { RegisterPharmsComponent } from './components/register-pharms/register-p
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MapsComponent]
 })
 export class AppModule { }

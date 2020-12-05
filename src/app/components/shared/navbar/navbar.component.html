@@ -6,10 +6,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto animated fadeIn">
             <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/acceder" routerLinkActive="active">Acceder</a>
-                </li>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon [ngStyle]="{'color': 'white'}">meeting_room</mat-icon>
+                  </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>person</mat-icon>
+                      <a routerLink="/acceder" routerLinkActive="active">Acceso para usuario</a>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>location_city</mat-icon>
+                      <span>Acceso para empresas</span>
+                    </button>
+                </mat-menu>
             </ng-container>
+
             <ng-template #loggedIn>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/perfil" routerLinkActive="active">perfil</a>
@@ -29,10 +40,14 @@
             </ng-template>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <mat-icon>shopping_cart</mat-icon>
+                    <mat-icon [ngStyle]="{'color': 'white'}">shopping_cart</mat-icon>
                 </a>
             </li>
         </ul>
 
     </div>
 </nav>
+<!-- 
+<li class="nav-item">
+    <a class="nav-link" routerLink="/acceder" routerLinkActive="active">Acceder</a>
+</li> -->

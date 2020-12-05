@@ -9,6 +9,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
     imports: [
@@ -20,7 +23,10 @@ import {MatBadgeModule} from '@angular/material/badge';
         MatTableModule,
         MatPaginatorModule,
         MatStepperModule,
-        MatBadgeModule
+        MatBadgeModule,
+        MatMenuModule,
+        MatExpansionModule,
+        MatDialogModule
     ],
     exports: [
         MatIconModule,
@@ -32,7 +38,10 @@ import {MatBadgeModule} from '@angular/material/badge';
         MatTableModule,
         MatPaginatorModule,
         MatStepperModule,
-        MatBadgeModule
+        MatBadgeModule,
+        MatMenuModule,
+        MatExpansionModule,
+        MatDialogModule
     ]
 })
 

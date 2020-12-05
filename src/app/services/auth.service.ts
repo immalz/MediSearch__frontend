@@ -8,7 +8,7 @@ import User from '../interfaces/User';
 })
 export class AuthService {
 
-  rolUsuario = 'random user';
+  UserFound;
 
   private URL = 'http://localhost:4000/api/auth';
 
@@ -33,6 +33,8 @@ export class AuthService {
 
   loggout(): any {
     localStorage.removeItem('token');
+    localStorage.removeItem('_id');
+    localStorage.removeItem('email');
     localStorage.removeItem('rol');
     this.router.navigate(['/acceder']);
   }

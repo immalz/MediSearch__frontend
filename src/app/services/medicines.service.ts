@@ -43,8 +43,8 @@ export class MedicinesService {
     return this.http.get(this.URL + `/searchMedicine/${name}`);
   }
 
-  updateMedicine(id: string, name: string, category: string, type: string, company: string, price: string): any {
-    return this.http.put(`${this.URL}/${id}`, {name, category, type, company, price});
+  updateMedicine(id: string, name: string, category: string, type: string, price: string): any {
+    return this.http.put(`${this.URL}/${id}`, {name, category, type, price});
   }
 
 }

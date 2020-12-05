@@ -3,6 +3,12 @@
     min-height: calc(100vh - 116px);
 }
 
+agm-map {
+    width: 600px;
+    height: 400px;
+    margin: auto;
+}
+
 
 /*-----------------BUSQUEDA-----------------*/
 

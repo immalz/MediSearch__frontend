@@ -21,7 +21,6 @@ export class AdminboardComponent implements OnInit {
     this.us.getUsersCount()
     .subscribe(
       res => {
-        console.log(res);
         this.countUser = res;
       },
       err => {console.log(err); }
@@ -30,7 +29,6 @@ export class AdminboardComponent implements OnInit {
     this.ms.getMedicineCount()
     .subscribe(
       res => {
-        console.log(res);
         this.countMedicine = res;
       },
       err => {console.log(err); }
@@ -39,7 +37,6 @@ export class AdminboardComponent implements OnInit {
     this.us.getPharmacyCount()
       .subscribe(
         res => {
-          console.log(res);
           this.countPharmacy = res;
         },
         err => {console.log(err); }
