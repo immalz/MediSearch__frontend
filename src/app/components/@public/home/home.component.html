@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<div class="espacio"></div>
+<div class="home animated fadeIn">
+
+    <div class="search">
+        <input type="text" #name (keyup)="searchMedicine(name.value)" placeholder="Buscar un medicamento..." required>
+    </div>
+    <main>
+        <div class="main__img">
+            <div class="dialog">
+                <p>¿Estas buscando algun medicamento?</p>
+            </div>
+            <img class="img_animated" src="assets/images/dr.png">
+        </div>
+        <div class="filter">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Tipo</th>
+                        <th>Precio</th>
+                        <th>Farmacia</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="animated fadeIn" *ngIf="!searching">
+                    <tr *ngFor="let medicine of medicines">
+                        <th class="tool">
+                            {{medicine.name}}
+                            <span class="animated fadeIn">
+                                <img [src]="imagePath + medicine.imgURL">
+                            </span>
+                        </th>
+                        <th>{{medicine.category}}</th>
+                        <th>{{medicine.type}}</th>
+                        <th>S/{{medicine.price}}</th>
+                        <th>{{medicine.company.name}}</th>
+                        <th class="options">
+                            <button mat-button (click)="openMap(medicine.company.latitude, medicine.company.length, medicine.company.name, medicine.company.imgURL)"><mat-icon> directions</mat-icon></button>
+                            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
+                        </th>
+                    </tr>
+                </tbody>
+                <tbody class="animated fadeIn" *ngIf="searching">
+                    <tr *ngFor="let medicine of medicineFound">
+                        <th class="tool">
+                            {{medicine.name}}
+                            <span class="animated fadeIn">
+                                <img [src]="imagePath + medicine.imgURL">
+                            </span>
+                        </th>
+                        <th>{{medicine.category}}</th>
+                        <th>{{medicine.type}}</th>
+                        <th>S/{{medicine.price}}</th>
+                        <th>{{medicine.company.name}}</th>
+                        <th class="options">
+
+                            <button mat-button ng-click="openMap(medicine.company.latitude, medicine.company.length, medicine.company.name, medicine.company.imgURL)">
+                                <mat-icon> directions</mat-icon>
+                            </button>
+
+                            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+
+    </main>
+</div>
+<app-footer></app-footer>

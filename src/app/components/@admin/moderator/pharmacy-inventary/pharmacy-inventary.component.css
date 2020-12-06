@@ -1,0 +1,93 @@
+/*-----------------BUSQUEDA-----------------*/
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+}
+
+.main::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background: #393a3a;
+    border-radius: 10px;
+}
+
+tbody tr th {
+    font-weight: 200;
+}
+
+tbody tr .options {
+    display: flex;
+    justify-content: center;
+}
+
+tbody tr .options a {
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+}
+
+tbody tr .options a:nth-child(1) {
+    margin-right: 10px;
+}
+
+.add {
+    width: 100%;
+    height: 100%;
+}
+
+.bt {
+    cursor: pointer;
+}
+
+
+/*-----------------TOOLTIP-----------------*/
+
+.tool {
+    text-decoration: none;
+    position: relative;
+}
+
+.tool span {
+    display: none;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    color: black;
+    background: white;
+}
+
+.tool span img {
+    float: left;
+    width: 100%;
+    object-fit: cover;
+    transform: scale(1.1)
+}
+
+.tool:hover span {
+    border-radius: 5px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: -120px;
+    left: 0;
+    z-index: 1000;
+    width: auto;
+    width: 200px;
+    height: 200px;
+    margin-top: 12px;
+    margin-left: 100px;
+    overflow: hidden;
+    padding: 1px;
+    background: rgba(0, 0, 0, 0);
+}

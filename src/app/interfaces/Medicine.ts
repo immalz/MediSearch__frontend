@@ -1,7 +1,7 @@
 interface Medicine {
     name: string;
     category: string;
-    company: string;
+    company?: string;
     type: string;
     price: any;
     imgURL?: File;

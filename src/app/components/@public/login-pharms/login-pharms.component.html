@@ -1,0 +1,23 @@
+<div class="main animated fadeIn">
+
+    <form class="form" [formGroup]="signInPharmacy">
+        <h3>INICIAR COMO EMPRESA</h3>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>RUC</mat-label>
+                <input formControlName="RUC" type="number" matInput placeholder="1289612873256" autocomplete="off">
+                <mat-icon matSuffix>supervised_user_circle</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Contraseña</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Contraseña" autocomplete="off">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+        </p>
+
+        <button [disabled]="signInPharmacy.invalid" type="submit" mat-raised-button color="primary" (click)="SignIn()" class="btn-block">Entrar</button>
+    </form>
+</div>

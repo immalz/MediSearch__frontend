@@ -10,23 +10,25 @@ export class MedicinesService {
 
   constructor(private http: HttpClient) { }
 
-  createMedicine(medicine: Medicine, imgURL: File): any {
+  createMedicine(medicine: Medicine, imgURL: File, id: string): any {
 
     const fd = new FormData();
     fd.append('name', medicine.name);
     fd.append('category', medicine.category);
     fd.append('type', medicine.type);
-    fd.append('company', medicine.company);
     fd.append('price', medicine.price);
     fd.append('imgURL', imgURL);
 
-    return this.http.post(this.URL, fd);
+    return this.http.post(`${this.URL}/${id}`, fd);
   }
 
   getMedicines(): any {
     return this.http.get<Medicine[]>(this.URL);
   }
 
+  getMedicineForPharmacy(id: string): any {
+    return this.http.get(`${this.URL}/pharmacy/${id}`);
+  }
   getMedicineCount(): any {
     return this.http.get(this.URL + '/count');
   }

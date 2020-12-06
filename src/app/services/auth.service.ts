@@ -21,7 +21,13 @@ export class AuthService {
   signIn(user: User): any {
     return this.http.post<any>(this.URL + '/signin', user);
   }
+  signInPharm(pharm): any {
+    return this.http.post<any>(this.URL + '/signin/pharmacy', pharm);
+  }
 
+  getRol(): any {
+    return localStorage.getItem('rol');
+  }
   loggedIn(): boolean{
     return !!localStorage.getItem('token');
   }
@@ -32,11 +38,17 @@ export class AuthService {
 
 
   loggout(): any {
+
+    if (localStorage.getItem('rol') === 'admin' || localStorage.getItem('rol') === 'moderator') {
+      this.router.navigate(['/acceder/empresa']);
+    } else {
+      this.router.navigate(['/acceder']);
+    }
+
     localStorage.removeItem('token');
     localStorage.removeItem('_id');
     localStorage.removeItem('email');
     localStorage.removeItem('rol');
-    this.router.navigate(['/acceder']);
   }
 }
 

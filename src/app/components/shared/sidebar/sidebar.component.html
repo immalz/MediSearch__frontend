@@ -1,46 +1,78 @@
 <div class="sidebar">
     <div>
         <h6>ADMINISTRAR</h6>
-        <mat-accordion>
-            <mat-expansion-panel hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <mat-icon>dashboard</mat-icon> Analiticas
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <a [routerLink]="['/admin/dashboard'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Control del sistema</a>
-            </mat-expansion-panel>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <mat-icon>list_alt</mat-icon> Inventario
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <li><a [routerLink]="['/admin/dashboard/lista-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Medicamentos</a></li>
-                <li><a [routerLink]="['/admin/dashboard/registro-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
-            </mat-expansion-panel>
+        <!--MODERATOR-->
+        <ng-container *ngIf="!isAdmin; else adminHere">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>dashboard</mat-icon> Analiticas
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a [routerLink]="['/farmacia/dashboard'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Control del sistema</a>
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>list_alt</mat-icon> Inventario
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li><a [routerLink]="['/farmacia/dashboard/lista-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Medicamentos</a></li>
+                    <li><a [routerLink]="['/farmacia/dashboard/registro-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
+                </mat-expansion-panel>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <mat-icon>people</mat-icon> Usuarios
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <li><a [routerLink]="['/admin/dashboard/lista-usuarios'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Usuarios</a></li>
-            </mat-expansion-panel>
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <mat-icon>local_hospital</mat-icon> Farmacias
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <li><a [routerLink]="['/admin/dashboard/lista-moderadores'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Farmacias</a></li>
-                <li><a [routerLink]="['/admin/dashboard/validar-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Peticiones Entrantes</a></li>
-                <li><a [routerLink]="['/admin/dashboard/registro-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
-            </mat-expansion-panel>
-        </mat-accordion>
+            </mat-accordion>
+        </ng-container>
+
+        <!--ADMIN-->
+        <ng-template #adminHere>
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>dashboard</mat-icon> Analiticas
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a [routerLink]="['/admin/dashboard'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Control del sistema</a>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>list_alt</mat-icon> Inventario
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li><a [routerLink]="['/admin/dashboard/lista-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Medicamentos</a></li>
+                    <li><a [routerLink]="['/admin/dashboard/registro-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>people</mat-icon> Usuarios
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li><a [routerLink]="['/admin/dashboard/lista-usuarios'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Usuarios</a></li>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>local_hospital</mat-icon> Farmacias
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li><a [routerLink]="['/admin/dashboard/lista-moderadores'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Farmacias</a></li>
+                    <li><a [routerLink]="['/admin/dashboard/validar-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Peticiones Entrantes</a></li>
+                    <li><a [routerLink]="['/admin/dashboard/registro-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
+                </mat-expansion-panel>
+
+
+
+            </mat-accordion>
+        </ng-template>
     </div>
 
     <div>

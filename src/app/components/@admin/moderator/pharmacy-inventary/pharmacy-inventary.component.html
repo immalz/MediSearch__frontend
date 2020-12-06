@@ -1,0 +1,35 @@
+<div class="main animated fadeIn">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Categoria</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th>Farmacia</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-light" *ngFor="let medicine of medicines; let i = index">
+                <th>{{i + 1}}</th>
+                <th class="tool">
+                    {{medicine.name}}
+                    <span class="animated fadeIn">
+                        <img [src]="imagePath + medicine.imgURL">
+                    </span>
+                </th>
+                <th>{{medicine.category}}</th>
+                <th>{{medicine.type}}</th>
+                <th>S/{{medicine.price}}</th>
+                <th>{{medicine.company.name}}</th>
+                <th>
+                    <a (click)="selectedMedicine(medicine._id)">
+                        <mat-icon class="bt" color="primary">open_in_new</mat-icon>
+                    </a>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
