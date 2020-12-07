@@ -10,6 +10,7 @@ export class MapsComponent implements OnInit {
 
   zoom: number;
   mapTypeId: string;
+  pharmacyURL = 'assets/images/marcador.png';
 
   constructor(public maps: MapsService) {
     this.zoom = 17;

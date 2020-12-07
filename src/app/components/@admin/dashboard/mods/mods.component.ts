@@ -16,6 +16,7 @@ export class ModsComponent implements OnInit, OnDestroy {
     this.obtenerDatos = this.us.getPharmacy()
     .subscribe(
       res => {
+        console.log(res);
         this.pharmacys = res;
       },
         err => { console.log(err); }

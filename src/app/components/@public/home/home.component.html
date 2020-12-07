@@ -1,73 +1,87 @@
 <app-navbar></app-navbar>
 <div class="espacio"></div>
 <div class="home animated fadeIn">
-
-    <div class="search">
-        <input type="text" #name (keyup)="searchMedicine(name.value)" placeholder="Buscar un medicamento..." required>
+    <div class="main__img">
+        <div class="dialog">
+            <p>¿Estas buscando algun medicamento?</p>
+        </div>
+        <img class="img_animated" src="assets/images/dr.png">
     </div>
-    <main>
-        <div class="main__img">
-            <div class="dialog">
-                <p>¿Estas buscando algun medicamento?</p>
-            </div>
-            <img class="img_animated" src="assets/images/dr.png">
-        </div>
-        <div class="filter">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Categoria</th>
-                        <th>Tipo</th>
-                        <th>Precio</th>
-                        <th>Farmacia</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody class="animated fadeIn" *ngIf="!searching">
-                    <tr *ngFor="let medicine of medicines">
-                        <th class="tool">
-                            {{medicine.name}}
-                            <span class="animated fadeIn">
-                                <img [src]="imagePath + medicine.imgURL">
-                            </span>
-                        </th>
-                        <th>{{medicine.category}}</th>
-                        <th>{{medicine.type}}</th>
-                        <th>S/{{medicine.price}}</th>
-                        <th>{{medicine.company.name}}</th>
-                        <th class="options">
-                            <button mat-button (click)="openMap(medicine.company.latitude, medicine.company.length, medicine.company.name, medicine.company.imgURL)"><mat-icon> directions</mat-icon></button>
-                            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
-                        </th>
-                    </tr>
-                </tbody>
-                <tbody class="animated fadeIn" *ngIf="searching">
-                    <tr *ngFor="let medicine of medicineFound">
-                        <th class="tool">
-                            {{medicine.name}}
-                            <span class="animated fadeIn">
-                                <img [src]="imagePath + medicine.imgURL">
-                            </span>
-                        </th>
-                        <th>{{medicine.category}}</th>
-                        <th>{{medicine.type}}</th>
-                        <th>S/{{medicine.price}}</th>
-                        <th>{{medicine.company.name}}</th>
-                        <th class="options">
+    <div class="filter">
+        <mat-form-field>
+            <mat-label>Filtro por Nombre</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Panadol" #input>
+        </mat-form-field>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+                    <td mat-cell *matCellDef="let row, let i = index;"> {{i + 1}}. </td>
+                </ng-container>
 
-                            <button mat-button ng-click="openMap(medicine.company.latitude, medicine.company.length, medicine.company.name, medicine.company.imgURL)">
-                                <mat-icon> directions</mat-icon>
-                            </button>
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> nombre </th>
+                    <td class="tool" mat-cell *matCellDef="let row">
+                        {{row.name}}
+                        <span class="animated fadeIn">
+                                        <img [src]="imagePath + row.imgURL">
+                                    </span>
+                    </td>
+                </ng-container>
 
-                            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
-                        </th>
-                    </tr>
-                </tbody>
+                <ng-container matColumnDef="categoria">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> categoria </th>
+                    <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="tipo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> tipo </th>
+                    <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="precio">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> precio </th>
+                    <td mat-cell *matCellDef="let row"> S/{{row.price}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="farmacia">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> farmacia </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="tools">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-button (click)="openMap(row.company.latitude, row.company.length, row.company.name, row.company.imgURL)">
+                                        <mat-icon> directions</mat-icon>
+                                    </button>
+                        <button mat-button (click)="addToCart(row.name)">
+                                        <mat-icon>add_shopping_cart</mat-icon>
+                                    </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No se ha encontrado un producto con nombre: "{{input.value}}"</td>
+                </tr>
             </table>
-        </div>
-        <hr>
 
-    </main>
+            <mat-paginator [pageSizeOptions]="[5]"></mat-paginator>
+        </div>
+    </div>
 </div>
+<section class="maps">
+    <h1>NUESTRAS FARMACIAS</h1>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker *ngFor="let item of pharmacys" [latitude]="item.latitude" [longitude]="item.length" [iconUrl]="pharmacyURL">
+            <agm-info-window>
+                <h6>{{item.name}}</h6>
+                <img [src]="item.imgURL" class="imgURL">
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
+</section>
 <app-footer></app-footer>

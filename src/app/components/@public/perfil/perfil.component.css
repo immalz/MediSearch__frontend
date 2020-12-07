@@ -15,3 +15,8 @@ button {
     align-items: center;
     flex-direction: column;
 }
+
+.imgURL {
+    width: 100px;
+    margin: auto;
+}

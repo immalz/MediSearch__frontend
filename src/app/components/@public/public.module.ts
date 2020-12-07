@@ -17,7 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { MapsComponent } from './maps/maps.component';
-import { SearchComponent } from './search/search.component';
+import { CartComponent } from './cart/cart.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPharmsComponent } from './login-pharms/login-pharms.component';
@@ -33,7 +33,7 @@ import { LoginPharmsComponent } from './login-pharms/login-pharms.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    SearchComponent,
+    CartComponent,
     PerfilComponent,
     MapsComponent,
     LoginPharmsComponent,
@@ -58,7 +58,7 @@ import { LoginPharmsComponent } from './login-pharms/login-pharms.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    SearchComponent,
+    CartComponent,
     PerfilComponent,
     MapsComponent,
   ],

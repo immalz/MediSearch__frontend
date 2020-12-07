@@ -30,3 +30,16 @@ p::selection {
     background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
 }
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: none;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #2b3946;
+}

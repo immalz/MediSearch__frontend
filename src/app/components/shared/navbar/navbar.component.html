@@ -23,15 +23,17 @@
 
             <ng-template #loggedIn>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/perfil" routerLinkActive="active">perfil</a>
+                    <a class="nav-link" routerLink="/perfil" routerLinkActive="active">
+                        <mat-icon>person</mat-icon>
+                    </a>
 
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active">Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/admin/moderador" routerLinkActive="active">Moderador</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" (click)="authService.loggout()">
                         <mat-icon>exit_to_app</mat-icon>
@@ -40,7 +42,7 @@
             </ng-template>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <mat-icon [ngStyle]="{'color': 'white'}">shopping_cart</mat-icon>
+                    <mat-icon [ngStyle]="{'color': 'white'}" [matBadge]="cs.numberCart" matBadgeColor="warn" (click)="cs.numberCart = 0">shopping_cart</mat-icon>
                 </a>
             </li>
         </ul>

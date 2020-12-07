@@ -1,33 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
-export class PerfilComponent implements OnInit {
+export class PerfilComponent implements OnInit, OnDestroy {
 
   lat: number;
   lng: number;
   zoom: number;
   mapTypeId: string;
+  pharmacyURL = 'assets/images/marcador.png';
 
-  constructor() {
-    this.lat = -11.864826;
-    this.lng = -77.07443;
-    this.zoom = 6;
+  pharmacys: [];
+  obtenerDatos: any;
+
+  constructor(private us: UsersService) {
+    this.lat = -11.8645505;
+    this.lng = -77.0766131;
+    this.zoom = 17;
     this.mapTypeId = 'hybrid';
    }
-
-   getCurrentPosition(): any {
-     navigator.geolocation.getCurrentPosition(position => {
-       this.lat = position.coords.latitude;
-       this.lng = position.coords.longitude;
-       this.zoom = 17;
-     });
+   ngOnInit(): void {
+    this.getPhamarcys();
    }
-  ngOnInit(): void {
-    this.getCurrentPosition();
-  }
 
-}
+   getPhamarcys(): any {
+    this.obtenerDatos = this.us.getPharmacy()
+    .subscribe(
+      res => {
+        console.log(res);
+        this.pharmacys = res;
+      },
+        err => { console.log(err); }
+    );
+   }
+
+    ngOnDestroy(): void {
+      this.obtenerDatos.unsubscribe();
+    }
+  }

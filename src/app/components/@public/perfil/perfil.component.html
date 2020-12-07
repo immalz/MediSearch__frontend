@@ -2,7 +2,11 @@
 <div class="main animated fadeIn">
     <h2>Farmacia Nueva</h2>
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-marker *ngFor="let item of pharmacys" [latitude]="item.latitude" [longitude]="item.length" [iconUrl]="pharmacyURL">
+            <agm-info-window>
+                <h6>{{item.name}}</h6>
+                <img [src]="item.imgURL" class="imgURL">
+            </agm-info-window>
+        </agm-marker>
     </agm-map>
-    <button mat-raised-button color="primary" (click)="getCurrentPosition()">BUSCAR MI DIRECCION</button>
 </div>

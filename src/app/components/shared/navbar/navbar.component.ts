@@ -1,3 +1,4 @@
+import { CartService } from './../../../services/cart.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {AuthService} from '../../../services/auth.service';
 import {UsersService} from '../../../services/users.service';
@@ -8,8 +9,9 @@ import {UsersService} from '../../../services/users.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(public authService: AuthService, public us: UsersService) { }
+  constructor(public authService: AuthService, public us: UsersService, public cs: CartService) { }
 
+  numberCart: number;
   rol: string;
 
   ngOnInit(): any {

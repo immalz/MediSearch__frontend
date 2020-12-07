@@ -1,7 +1,7 @@
 <div class="main animated fadeIn">
     <h2>{{maps.nameCompany}}</h2>
     <agm-map [latitude]="maps.lat" [longitude]="maps.lng" [zoom]="zoom">
-        <agm-marker [latitude]="maps.lat" [longitude]="maps.lng">
+        <agm-marker [latitude]="maps.lat" [longitude]="maps.lng" [iconUrl]="pharmacyURL">
             <agm-info-window>
                 <p>{{maps.nameCompany}}</p>
                 <img [src]="maps.imgURL" class="imgURL">
