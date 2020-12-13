@@ -18,9 +18,9 @@
                 <th>{{pharmacy.address}}</th>
                 <th>{{pharmacy.roles[0].name}}</th>
                 <th>
-                    <a href="#">
-                        <mat-icon>open_in_new</mat-icon>
-                    </a>
+                    <button mat-button (click)="detailPharm(pharmacy)">
+                        <mat-icon color="primary">open_in_new</mat-icon>
+                    </button>
                 </th>
             </tr>
         </tbody>

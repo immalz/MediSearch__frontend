@@ -1,7 +1,9 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { PharmsService } from 'src/app/services/pharms.service';
+import PharmRequest from 'src/app/interfaces/PharmRequest';
 
 @Component({
   selector: 'app-req-new-mods',
@@ -10,7 +12,7 @@ import { PharmsService } from 'src/app/services/pharms.service';
 })
 export class ReqNewModsComponent implements OnInit, OnDestroy {
 
-  constructor(private router: Router, private ps: PharmsService) { }
+  constructor(private router: Router, private ps: PharmsService, private as: AuthService) { }
 
   reqPharmacy = [];
   request: any;
@@ -41,17 +43,28 @@ export class ReqNewModsComponent implements OnInit, OnDestroy {
     );
 
   }
-  accept(): any {
-    this.router.navigate(['/admin/dashboard/lista-moderadores']);
-    Swal.fire(
-      'Felicidades!',
-      `La nueva Farmacia ha sido agregada satisfactoriamente`,
-      'success'
-    );
+  accept(req: PharmRequest): any {
+    this.as.signUpPharm(req)
+        .subscribe(
+          res => {
+            this.router.navigate(['/admin/dashboard/lista-moderadores']);
+            Swal.fire(
+              'Felicidades!',
+              `La farmacia ${req.name} se ha registrado satisfactoriamente!`,
+              'success'
+            );
+          },
+          err => {
+            Swal.fire(
+              'Lastima!',
+              `La farmacia ${req.name} no se ha podido registrar!`,
+              'error'
+            );
+          }
+        );
+    this.deny(req._id);
   }
   ngOnDestroy(): void {
     this.request.unsubscribe();
   }
-
-
 }

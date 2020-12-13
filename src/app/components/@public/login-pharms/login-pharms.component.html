@@ -1,5 +1,5 @@
 <div class="main animated fadeIn">
-
+    <div class="circle"></div>
     <form class="form" [formGroup]="signInPharmacy">
         <h3>INICIAR COMO EMPRESA</h3>
         <p>
@@ -18,6 +18,10 @@
             </mat-form-field>
         </p>
 
+        <a routerLink="/unetenos">¿Quieres trabajar con nosotros?</a>
+
         <button [disabled]="signInPharmacy.invalid" type="submit" mat-raised-button color="primary" (click)="SignIn()" class="btn-block">Entrar</button>
     </form>
 </div>
+
+<app-button></app-button>

@@ -15,9 +15,17 @@ export class AddModeratorComponent implements OnInit {
 
   constructor(private builder: FormBuilder, public authService: AuthService, private router: Router) {
     this.signUpPharmacy = this.builder.group({
-      username: ['', Validators.required],
+      name: ['', Validators.required],
+      nameOwner: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],
+      RUC: ['', Validators.required],
+      phone: ['', Validators.required],
+      razonSocial: ['', Validators.required],
+      address: ['', Validators.required],
+      latitude: ['', Validators.required],
+      longitude: ['', Validators.required],
+      imgURL: ['', Validators.required],
       roles: [['moderator']]
     });
 
@@ -27,20 +35,25 @@ export class AddModeratorComponent implements OnInit {
   }
 
   send(valueForm): any {
-    Swal.fire(
-      'Felicidades!',
-      `La farmacia ${valueForm.username} se ha registrado satisfactoriamente!`,
-      'success'
-    ).then(result => {
-      if (result.value) {
-        this.authService.signUp(valueForm)
+        this.authService.signUpPharm(valueForm)
         .subscribe(
           res => {
             this.router.navigate(['/admin/dashboard/lista-moderadores']);
+            Swal.fire(
+              'Felicidades!',
+              `La farmacia ${valueForm.name} se ha registrado satisfactoriamente!`,
+              'success'
+            );
           },
-          err => {console.log(err); }
+          err => {
+            Swal.fire(
+              'Lastima!',
+              `La farmacia ${valueForm.name} no se ha podido registrar!`,
+              'error'
+            );
+          }
         );
       }
-    });
-  }
 }
+
+

@@ -33,6 +33,10 @@ export class MedicinesService {
     return this.http.get(this.URL + '/count');
   }
 
+  getLastMedicine(): any {
+    return this.http.get<any>(this.URL + '/last');
+  }
+
   getMedicine(id: string): any {
     return this.http.get<Medicine>(`${this.URL}/${id}`);
   }

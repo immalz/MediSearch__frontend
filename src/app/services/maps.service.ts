@@ -8,6 +8,7 @@ export class MapsService {
   lat: number;
   lng: number;
   nameCompany: string;
+  address: string;
   imgURL: string;
 
   constructor() { }

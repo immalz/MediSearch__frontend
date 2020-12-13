@@ -1,0 +1,34 @@
+<div class="sidebar">
+    <div>
+        <h6>ADMINISTRAR</h6>
+        <img src="assets/images/user.png" class="perfil">
+        <ng-container>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>restore_page</mat-icon> Información
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li><a [routerLink]="['/perfil/actualizar-informacion'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Actualizar</a></li>
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon>list_alt</mat-icon> Historial
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li><a [routerLink]="['/perfil/historial-compra'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Compras</a></li>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </ng-container>
+    </div>
+    <div class="botones">
+        <button mat-raised-button color="primary" [routerLink]="['/']">
+            Inicio
+        </button>
+        <button mat-raised-button color="warn" (click)="authService.loggout()">
+            Salir
+        </button>
+    </div>
+</div>

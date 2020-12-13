@@ -43,3 +43,19 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background: #2b3946;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+button,
+button:focus,
+a {
+    outline: none;
+}

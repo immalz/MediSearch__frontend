@@ -11,12 +11,22 @@ import {UsersService} from '../../../services/users.service';
 export class NavbarComponent implements OnInit {
   constructor(public authService: AuthService, public us: UsersService, public cs: CartService) { }
 
+  isUser = false;
+  isAdmin = false;
+  isMod = false;
   numberCart: number;
   rol: string;
 
   ngOnInit(): any {
     this.rol = localStorage.getItem('rol');
 
+    if (this.rol === 'user') {
+      this.isUser = true;
+    } else if (this.rol === 'admin') {
+      this.isAdmin = true;
+    } else {
+      this.isMod = true;
+    }
   }
 
 

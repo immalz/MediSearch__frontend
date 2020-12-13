@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // GUARDS
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { AuthAdminGuard } from 'src/app/guards/auth-admin.guard';
+import { AuthModGuard } from 'src/app/guards/authMod.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 
@@ -30,6 +32,7 @@ import { ModboardComponent } from './moderator/modboard/modboard.component';
 import { PharmacyInventaryComponent } from './moderator/pharmacy-inventary/pharmacy-inventary.component';
 import { PharmacyAddMedicineComponent } from './moderator/pharmacy-add-medicine/pharmacy-add-medicine.component';
 import { PharmacyPreviewMedicineComponent } from './moderator/pharmacy-preview-medicine/pharmacy-preview-medicine.component';
+import { ChangeInfoComponent } from './moderator/change-info/change-info.component';
 
 
 
@@ -53,6 +56,7 @@ import { PharmacyPreviewMedicineComponent } from './moderator/pharmacy-preview-m
     PharmacyInventaryComponent,
     PharmacyAddMedicineComponent,
     PharmacyPreviewMedicineComponent,
+    ChangeInfoComponent,
   ],
   imports: [
     CommonModule,
@@ -84,6 +88,16 @@ import { PharmacyPreviewMedicineComponent } from './moderator/pharmacy-preview-m
   providers: [
     AuthGuard,
     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    AuthAdminGuard, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    },
+    AuthModGuard, {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true

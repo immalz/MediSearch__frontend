@@ -1,6 +1,6 @@
-<div class="espacio"></div>
-
 <div class="main animated fadeIn">
+    <div class="circle"></div>
+    <div class="circle_right"></div>
     <img class="bg" src="assets/images/ambulange-nobg.gif">
     <mat-horizontal-stepper labelPosition="bottom">
 
@@ -13,8 +13,8 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field appearance="legacy">
-                    <mat-label>Correo Electronico</mat-label>
-                    <input matInput placeholder="example@example.com" formControlName="email" required>
+                    <mat-label>Razon Social</mat-label>
+                    <input matInput placeholder="Mi Empresa S.A.C" formControlName="razonSocial" required>
                 </mat-form-field>
                 <br>
                 <mat-form-field appearance="legacy">
@@ -24,7 +24,7 @@
                 <br>
                 <mat-form-field appearance="legacy">
                     <mat-label>Foto Referencial</mat-label>
-                    <input matInput type="email" placeholder="https://mifoto.jpg" formControlName="photo" required>
+                    <input matInput type="email" placeholder="https://mifoto.jpg" formControlName="imgURL" required>
                 </mat-form-field>
                 <div>
                     <button type="button" [disabled]="GeneralFormGroup.invalid" mat-button color="primary" matStepperNext>Siguiente</button>
@@ -37,13 +37,17 @@
             <form [formGroup]="PrivateFormGroup">
                 <ng-template matStepLabel>Datos de la Empresa</ng-template>
                 <mat-form-field appearance="legacy">
-                    <mat-label>Razon Social</mat-label>
-                    <input matInput placeholder="Mi Empresa S.A.C" formControlName="razonSocial" required>
+                    <mat-label>Correo Electronico</mat-label>
+                    <input matInput placeholder="example@example.com" formControlName="email" required>
                 </mat-form-field>
                 <br>
                 <mat-form-field appearance="legacy">
                     <mat-label>RUC</mat-label>
                     <input matInput placeholder="1798285937001 " formControlName="RUC" required>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="password" placeholder="********" formControlName="password" required>
                 </mat-form-field>
                 <br>
                 <mat-form-field appearance="legacy">
@@ -76,7 +80,7 @@
                 <br>
                 <mat-form-field appearance="legacy">
                     <mat-label>Longitud</mat-label>
-                    <input matInput placeholder="-3.57321" formControlName="length" required>
+                    <input matInput placeholder="-3.57321" formControlName="longitude" required>
                 </mat-form-field>
 
                 <div>

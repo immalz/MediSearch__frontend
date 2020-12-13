@@ -16,6 +16,14 @@
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
+                            <mat-icon>restore_page</mat-icon> Información
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li><a [routerLink]="['/farmacia/dashboard/actualizar-informacion'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Actualizar</a></li>
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
                             <mat-icon>list_alt</mat-icon> Inventario
                         </mat-panel-title>
                     </mat-expansion-panel-header>
@@ -46,7 +54,6 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <li><a [routerLink]="['/admin/dashboard/lista-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Medicamentos</a></li>
-                    <li><a [routerLink]="['/admin/dashboard/registro-inventario'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
                 </mat-expansion-panel>
 
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
@@ -68,14 +75,14 @@
                     <li><a [routerLink]="['/admin/dashboard/validar-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Peticiones Entrantes</a></li>
                     <li><a [routerLink]="['/admin/dashboard/registro-moderador'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Registro Nuevo</a></li>
                 </mat-expansion-panel>
-
-
-
             </mat-accordion>
         </ng-template>
     </div>
 
-    <div>
+    <div class="botones">
+        <button mat-raised-button color="primary" [routerLink]="['/']">
+            Inicio
+        </button>
         <button mat-raised-button color="warn" (click)="authService.loggout()">
             Salir
         </button>

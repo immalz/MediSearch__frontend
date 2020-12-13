@@ -42,7 +42,7 @@ export class UsersComponent implements OnInit, OnDestroy {
           this.us.deleteUser(id)
           .subscribe(
             res => {
-              console.log(res);
+              this.ngOnInit();
             },
             err => { console.log(err); }
           );

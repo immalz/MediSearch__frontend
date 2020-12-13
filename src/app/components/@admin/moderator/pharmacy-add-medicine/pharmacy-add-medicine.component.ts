@@ -50,15 +50,24 @@ export class PharmacyAddMedicineComponent implements OnInit {
   uploadMedicine(): any {
 
     this.id = localStorage.getItem('_id');
-    console.log(this.id);
 
     this.ms.createMedicine(this.medicine, this.file, this.id)
       .subscribe(
         res => {
-          console.log(res);
-          this.router.navigate(['/admin/dashboard/lista-inventario']);
+          this.router.navigate(['/farmacia/dashboard/lista-inventario']);
+          Swal.fire(
+            'Felicidades!',
+            `La medicina ${this.medicine.name} se ha añadido con exito!`,
+            'success'
+          );
         },
-        err => console.log(err)
+        err => {
+          Swal.fire(
+            'Error inesperado!',
+            'El proceso ha fallado, por favor vuelva a intentar!',
+            'error'
+          );
+        }
       );
     return false;
   }

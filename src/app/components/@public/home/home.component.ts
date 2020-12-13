@@ -12,6 +12,7 @@ import { MedicinesService } from 'src/app/services/medicines.service';
 import { UsersService } from 'src/app/services/users.service';
 import { MapsService } from 'src/app/services/maps.service';
 import Swal from 'sweetalert2';
+import { PharmsService } from 'src/app/services/pharms.service';
 
 
 @Component({
@@ -43,7 +44,15 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild(MatSort) sort: MatSort;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private ms: MedicinesService, private dialog: MatDialog, private maps: MapsService, private us: UsersService, private cs: CartService) {
+  constructor(
+    private ms: MedicinesService,
+    private dialog: MatDialog,
+    private maps: MapsService,
+    private us: UsersService,
+    private cs: CartService,
+    private ps: PharmsService
+    ) {
+
     this.lat = -11.8645505;
     this.lng = -77.0766131;
     this.zoom = 17;
@@ -66,15 +75,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         err => console.log(err)
       );
   }
-
-  addToCart(medicine: string): any {
-    this.cs.numberCart = this.cs.numberCart + 1;
-    Swal.fire(
-      'CARRITO DE COMPRA',
-      `Se ha añadido: ${medicine} al carrito!`,
-      'success'
-    );
-  }
   getPhamarcys(): any {
     this.obtenerDatos = this.us.getPharmacy()
     .subscribe(
@@ -94,17 +94,18 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  openMap(lat: number, lng: number, name: string, imgURL: string): void {
+  openMap(lat: number, lng: number, name: string, imgURL: string, address: string): void {
     this.maps.lat = lat;
     this.maps.lng = lng;
     this.maps.nameCompany = name;
     this.maps.imgURL = imgURL;
+    this.maps.address = address;
 
     this.dialog.open(MapsComponent);
   }
 
-  onAddToCart(): any {
-    this.cs.addProductToCart(this.medicine);
+  onAddToCart(medicine): any {
+    this.cs.addProductToCart(medicine);
   }
 
   ngOnDestroy(): void {

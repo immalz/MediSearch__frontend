@@ -1,12 +1,8 @@
-<div class="espacio"></div>
-<div class="main animated fadeIn">
-    <h2>Farmacia Nueva</h2>
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-        <agm-marker *ngFor="let item of pharmacys" [latitude]="item.latitude" [longitude]="item.length" [iconUrl]="pharmacyURL">
-            <agm-info-window>
-                <h6>{{item.name}}</h6>
-                <img [src]="item.imgURL" class="imgURL">
-            </agm-info-window>
-        </agm-marker>
-    </agm-map>
-</div>
+<main class="main animated fadeIn">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="central">
+        <router-outlet></router-outlet>
+    </div>
+</main>

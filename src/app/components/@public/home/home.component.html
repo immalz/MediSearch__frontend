@@ -52,10 +52,10 @@
                 <ng-container matColumnDef="tools">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
                     <td mat-cell *matCellDef="let row">
-                        <button mat-button (click)="openMap(row.company.latitude, row.company.length, row.company.name, row.company.imgURL)">
+                        <button mat-button (click)="openMap(row.company.latitude, row.company.longitude, row.company.name,row.company.imgURL, row.company.address)">
                                         <mat-icon> directions</mat-icon>
                                     </button>
-                        <button mat-button (click)="addToCart(row.name)">
+                        <button mat-button (click)="onAddToCart(row)">
                                         <mat-icon>add_shopping_cart</mat-icon>
                                     </button>
                     </td>
@@ -76,12 +76,14 @@
 <section class="maps">
     <h1>NUESTRAS FARMACIAS</h1>
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-        <agm-marker *ngFor="let item of pharmacys" [latitude]="item.latitude" [longitude]="item.length" [iconUrl]="pharmacyURL">
+        <agm-marker *ngFor="let item of pharmacys" [latitude]="item.latitude" [longitude]="item.longitude" [iconUrl]="pharmacyURL">
             <agm-info-window>
                 <h6>{{item.name}}</h6>
+                <h6>{{item.address}}</h6>
                 <img [src]="item.imgURL" class="imgURL">
             </agm-info-window>
         </agm-marker>
     </agm-map>
 </section>
+
 <app-footer></app-footer>

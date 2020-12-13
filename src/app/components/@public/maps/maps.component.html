@@ -3,12 +3,10 @@
     <agm-map [latitude]="maps.lat" [longitude]="maps.lng" [zoom]="zoom">
         <agm-marker [latitude]="maps.lat" [longitude]="maps.lng" [iconUrl]="pharmacyURL">
             <agm-info-window>
-                <p>{{maps.nameCompany}}</p>
+                <h6>{{maps.nameCompany}}</h6>
+                <h6>{{maps.address}}</h6>
                 <img [src]="maps.imgURL" class="imgURL">
             </agm-info-window>
         </agm-marker>
     </agm-map>
 </div>
-
-
-<!-- iconUrl="{url: assets/images/marcador.png, scaleSize: { height: 15, width: 20}}" -->

@@ -29,21 +29,22 @@ export class RegisterPharmsComponent implements OnInit {
 
     this.GeneralFormGroup = this.fb.group({
       name: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
+      razonSocial: ['', Validators.required],
       phone: ['', Validators.required],
-      photo: ['', Validators.required],
+      imgURL: ['', Validators.required],
     });
 
     this.PrivateFormGroup = this.fb.group({
-      razonSocial: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       RUC: ['', Validators.required],
       nameOwner: ['', Validators.required],
+      password: ['', Validators.required]
     });
 
     this.AddressFormGroup = this.fb.group({
       address: ['', Validators.required],
       latitude: ['', Validators.required],
-      length: ['', Validators.required],
+      longitude: ['', Validators.required],
     });
   }
 

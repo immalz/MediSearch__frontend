@@ -1,11 +1,47 @@
 <main class="main animated fadeIn">
-    <div class="users">
-        <circle-progress [percent]="100" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [title]="countUser" subtitle="Usuarios" subtitleFontSize="16" [outerStrokeColor]="'#20e4da'" [innerStrokeColor]="'#80e6e0'" [animation]="true" [animationDuration]="300"></circle-progress>
+    <div class="graficos animated fadeIn">
+        <div class="users">
+            <circle-progress [percent]="100" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [title]="countUser" subtitle="Usuarios" subtitleFontSize="16" [outerStrokeColor]="'#20e4da'" [innerStrokeColor]="'#80e6e0'" [animation]="true" [animationDuration]="300"></circle-progress>
+        </div>
+        <div class="mods">
+            <circle-progress [percent]="100" [title]="countPharmacy" subtitle="Farmacias" subtitleFontSize="16" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#FF6347'" [innerStrokeColor]="'#e49520'" [animation]="true" [animationDuration]="300"></circle-progress>
+        </div>
+        <div class="medicine">
+            <circle-progress [percent]="100" [title]="countMedicine" subtitle="Medicamentos" subtitleFontSize="16" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#eef58a'" [innerStrokeColor]="'#f1d1a6'" [animation]="true" [animationDuration]="300"></circle-progress>
+        </div>
     </div>
-    <div class="mods">
-        <circle-progress [percent]="100" [title]="countPharmacy" subtitle="Farmacias" subtitleFontSize="16" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#FF6347'" [innerStrokeColor]="'#e49520'" [animation]="true" [animationDuration]="300"></circle-progress>
-    </div>
-    <div class="medicine">
-        <circle-progress [percent]="100" [title]="countMedicine" subtitle="Medicamentos" subtitleFontSize="16" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#eef58a'" [innerStrokeColor]="'#f1d1a6'" [animation]="true" [animationDuration]="300"></circle-progress>
+    <h1 [ngStyle]="{'text-align': 'center'}">ULTIMOS REGISTROS</h1>
+    <div class="tarjetas">
+        <mat-card class="example-card" *ngIf="lastUser" [routerLink]="['/admin/dashboard/lista-usuarios']">
+            <mat-card-header>
+                <mat-card-title>{{lastUser.username}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="assets/images/user.png">
+            <mat-card-content>
+                <p><b>correo:</b> {{lastUser.email}}</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="example-card" *ngIf="lastMedicine" [routerLink]="['/admin/dashboard/lista-inventario']">
+            <mat-card-header>
+                <mat-card-title>{{lastMedicine.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="imagePath + lastMedicine.imgURL">
+            <mat-card-content>
+                <p><b>tipo:</b> {{lastMedicine.type}}</p>
+                <p><b>precio:</b> S/{{lastMedicine.price}}</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="example-card" *ngIf="lastPharm" [routerLink]="['/admin/dashboard/lista-moderadores']">
+            <mat-card-header>
+                <mat-card-title>{{lastPharm.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="lastPharm.imgURL">
+            <mat-card-content>
+                <p><b>dirección:</b> {{lastPharm.address}}</p>
+                <p><b>correo:</b> {{lastPharm.email}}</p>
+            </mat-card-content>
+        </mat-card>
     </div>
 </main>

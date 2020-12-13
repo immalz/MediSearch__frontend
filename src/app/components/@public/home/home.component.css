@@ -29,6 +29,10 @@ table {
     width: 800px;
 }
 
+.imgURL {
+    width: 120px;
+}
+
 
 /*-----------------DOCTOR-----------------*/
 
@@ -134,7 +138,7 @@ table {
     justify-content: center;
     align-items: center;
     top: -120px;
-    left: 0;
+    right: 120px;
     z-index: 1000;
     width: auto;
     width: 200px;
@@ -161,4 +165,10 @@ table {
 .maps h1 {
     margin: 0;
     text-align: center;
+}
+
+.dashButton {
+    position: absolute;
+    top: 100px;
+    left: 40px;
 }

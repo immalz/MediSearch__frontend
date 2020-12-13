@@ -1,1 +1,53 @@
-<p>modboard works!</p>
+<div class="loading" *ngIf="!infoPharmacy; else pharm_content">
+    <img src="assets/images/ambulange-nobg.gif">
+</div>
+
+
+<ng-template #pharm_content>
+    <main class="main animated fadeIn">
+        <header>
+            <h1>{{infoPharmacy.name}}</h1>
+            <p>{{infoPharmacy.nameOwner}}</p>
+            <hr>
+        </header>
+        <div class="central">
+            <div class="mods">
+                <h5>CANTIDAD DE MEDICAMENTOS</h5>
+                <circle-progress [percent]="100" [title]="countMedicine" subtitle="Medicamentos" subtitleFontSize="16" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#FF6347'" [innerStrokeColor]="'#e49520'" [animation]="true" [animationDuration]="300"></circle-progress>
+            </div>
+            <div class="last">
+                <h5>ULTIMO MEDICAMENTO AÑADIDO</h5>
+                <mat-card class="example-card" *ngIf="lastMedicine" [routerLink]="['/farmacia/dashboard/lista-inventario']">
+                    <mat-card-header>
+                        <mat-card-title>{{lastMedicine.name}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="imagePath + lastMedicine.imgURL">
+                    <mat-card-content>
+                        <p><b>tipo:</b> {{lastMedicine.type}}</p>
+                        <p><b>precio:</b> S/{{lastMedicine.price}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </main>
+</ng-template>
+
+
+
+<!--
+    <div class="mods">
+        <circle-progress [percent]="100" [title]="countMedicine" subtitle="Medicamentos" subtitleFontSize="16" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#FF6347'" [innerStrokeColor]="'#e49520'" [animation]="true" [animationDuration]="300"></circle-progress>
+    </div>
+    <h1>ULTIMO MEDICAMENTO AÑADIDO</h1>
+    <mat-card class="example-card" *ngIf="lastMedicine" [routerLink]="['/farmacia/dashboard/lista-inventario']">
+        <mat-card-header>
+            <mat-card-title>{{lastMedicine.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="imagePath + lastMedicine.imgURL">
+        <mat-card-content>
+            <p><b>tipo:</b> {{lastMedicine.type}}</p>
+            <p><b>precio:</b> S/{{lastMedicine.price}}</p>
+        </mat-card-content>
+    </mat-card>
+
+-->

@@ -1,1 +1,7 @@
-<p>preview-mods works!</p>
+<main class="main">
+    <h2>{{pharmService.name}}</h2>
+    <img [src]="pharmService.imgURL" [alt]="pharmService.name">
+    <p>CORREO: {{pharmService.email}}</p>
+    <p>DIRECCIÓN: {{pharmService.address}}</p>
+    <button mat-raised-button color="warn" (click)="deletedPharm(pharmService.id)">Eliminar</button>
+</main>

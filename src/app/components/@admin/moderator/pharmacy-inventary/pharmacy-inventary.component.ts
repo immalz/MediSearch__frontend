@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
 import { MedicinesService } from 'src/app/services/medicines.service';
 import {Router} from '@angular/router';
 
@@ -15,6 +14,7 @@ export class PharmacyInventaryComponent implements OnInit, OnDestroy {
   medicines = [];
   id: string;
   obtenerDatos: any;
+  name: string;
 
   imagePath = 'http://localhost:4000/';
 
@@ -25,6 +25,7 @@ export class PharmacyInventaryComponent implements OnInit, OnDestroy {
       .subscribe(
         res => {
           this.medicines = res;
+          this.name = localStorage.getItem('name');
         },
         err => { console.log(err); }
       );

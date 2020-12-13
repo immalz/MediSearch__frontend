@@ -1,0 +1,96 @@
+<div class="main animated fadeIn">
+    <img class="bgicon" src="assets/images/ambulange-nobg.gif">
+    <form class="form" [formGroup]="signUpPharmacy" (ngSubmit)="update(signUpPharmacy.value)">
+        <h3>ACTUALIZAR INFORMACIÓN</h3>
+        <div class="inputs">
+            <div>
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="name" type="text" matInput placeholder="Mi Botica..." autocomplete="off">
+                        <mat-icon matSuffix>healing</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>RUC</mat-label>
+                        <input formControlName="RUC" type="number" matInput placeholder="1231238172312" autocomplete="off">
+                        <mat-icon matSuffix>store_mall_directory</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Correo</mat-label>
+                        <input formControlName="email" type="email" matInput placeholder="Correo Electronico" autocomplete="off">
+                        <mat-icon matSuffix>alternate_email</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Contraseña</mat-label>
+                        <input formControlName="password" type="password" matInput placeholder="Contraseña" autocomplete="off">
+                        <mat-icon matSuffix>vpn_key</mat-icon>
+                    </mat-form-field>
+                </p>
+                <!----------------------------------------------->
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Celular</mat-label>
+                        <input formControlName="phone" type="number" matInput placeholder="+51 922752910" autocomplete="off">
+                        <mat-icon matSuffix>local_phone</mat-icon>
+                    </mat-form-field>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Razon Social</mat-label>
+                        <input formControlName="razonSocial" type="text" matInput placeholder="Contraseña" autocomplete="off">
+                        <mat-icon matSuffix>supervised_user_circle</mat-icon>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Gerente</mat-label>
+                        <input formControlName="nameOwner" type="text" matInput placeholder="Correo Electronico" autocomplete="off">
+                        <mat-icon matSuffix>security</mat-icon>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Dirección</mat-label>
+                        <input formControlName="address" type="text" matInput placeholder="Calle 201 mz 82a" autocomplete="off">
+                        <mat-icon matSuffix>directions</mat-icon>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Latitud</mat-label>
+                        <input type="number" formControlName="latitude" matInput placeholder="-2.334343" autocomplete="off">
+                        <mat-icon matSuffix>edit_location</mat-icon>
+                    </mat-form-field>
+                </p>
+
+                <!----------------------------------------------->
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Longitud</mat-label>
+                        <input formControlName="longitude" type="number" matInput placeholder="-11.23232" autocomplete="off">
+                        <mat-icon matSuffix>edit_location</mat-icon>
+                    </mat-form-field>
+                </p>
+            </div>
+        </div>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Imagen Referencial</mat-label>
+                <input type="text" formControlName="imgURL" matInput placeholder="https://www.miimagen.jpg" autocomplete="off">
+                <mat-icon matSuffix>photo_library</mat-icon>
+            </mat-form-field>
+        </p>
+        <button type="button" (click)="getInfo()" [disabled]="signUpPharmacy.valid" mat-raised-button class="btn-block obtener">Obtener Datos</button>
+        <button [disabled]="signUpPharmacy.invalid" type="submit" mat-raised-button color="primary" class="btn-block">Actualizar</button>
+    </form>
+</div>

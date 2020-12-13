@@ -1,0 +1,45 @@
+.home {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-icon-button {
+    outline: none;
+}
+
+.filter {
+    margin: auto;
+    width: 90%;
+}
+
+.encabezado {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.bg {
+    width: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

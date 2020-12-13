@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../services/auth.service';
+import { PharmsService } from 'src/app/services/pharms.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,10 +12,10 @@ export class SidebarComponent implements OnInit {
 
   panelOpenState = false;
   role: string;
-
+  id: string;
   isAdmin = false;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private router: Router, private ps: PharmsService) { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('rol');
@@ -24,5 +26,4 @@ export class SidebarComponent implements OnInit {
       this.isAdmin = false;
     }
   }
-
 }

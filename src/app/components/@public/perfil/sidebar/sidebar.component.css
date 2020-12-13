@@ -1,0 +1,44 @@
+.sidebar {
+    width: 220px;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 300;
+    align-items: center;
+}
+
+.mat-accordion {
+    width: 100%;
+}
+
+.perfil {
+    width: 100%;
+}
+
+.mat-raised-button {
+    margin: 20px 0;
+}
+
+li a {
+    margin: 10px 0 !important;
+    cursor: pointer;
+}
+
+.mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.sidebar h6 {
+    margin: 20px;
+    font-size: 15px;
+}
+
+.botones {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}

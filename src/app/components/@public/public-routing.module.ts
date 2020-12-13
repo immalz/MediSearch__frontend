@@ -1,3 +1,5 @@
+import { UpdateInfoComponent } from './perfil/update-info/update-info.component';
+import { HistorialComponent } from './perfil/historial/historial.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/guards/auth.guard';
@@ -8,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RegisterPharmsComponent } from './register-pharms/register-pharms.component';
 import { RegisterComponent } from './register/register.component';
+import { InfoComponent } from './perfil/info/info.component';
 
 const routes: Routes = [
   { path: 'inicio', component: HomeComponent },
@@ -21,7 +24,12 @@ const routes: Routes = [
   {
      path: 'perfil',
      canActivate: [AuthGuard],
-     component: PerfilComponent
+     component: PerfilComponent,
+     children: [
+      {path: '', component: InfoComponent},
+      {path: 'actualizar-informacion', component: UpdateInfoComponent},
+      {path: 'historial-compra', component: HistorialComponent},
+     ]
   },
 ];
 

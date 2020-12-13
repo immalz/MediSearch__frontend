@@ -1,6 +1,6 @@
 .main {
     width: 100%;
-    height: calc(100vh - 116px);
+    height: 100vh;
     position: relative;
 }
 
@@ -23,8 +23,31 @@ input {
 
 .bg {
     position: absolute;
-    width: 200px;
+    width: 400px;
     z-index: -1;
-    left: 0;
-    bottom: 0;
+    right: 0;
+    bottom: 50px;
 }
+
+.main .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #40aff0b7;
+    z-index: -1;
+    clip-path: circle(600px at right 800px);
+}
+
+
+/* .main .circle_right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #40aff0b7;
+    z-index: -1;
+    clip-path: circle(600px at left 800px);
+} */

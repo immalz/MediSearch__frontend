@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import User from 'src/app/interfaces/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsersService } from 'src/app/services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,6 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(this.user)
       .subscribe(
         res => {
-          console.log(res);
           this.authService.UserFound = res.userFound;
 
           localStorage.setItem('token', res.token);
@@ -36,7 +36,13 @@ export class LoginComponent implements OnInit {
 
           this.router.navigate(['/']);
         } ,
-        err => {console.log(err); }
+        err => {
+          Swal.fire(
+            'LOGIN',
+            `${err.error.message}`,
+            'error'
+          );
+         }
       );
   }
 }

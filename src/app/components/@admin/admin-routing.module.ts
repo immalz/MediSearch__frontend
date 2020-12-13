@@ -1,3 +1,4 @@
+import { ChangeInfoComponent } from './moderator/change-info/change-info.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -49,6 +50,7 @@ const routes: Routes = [
   component: ModeratorComponent,
   children: [
     {path: '', component: ModboardComponent},
+    {path: 'actualizar-informacion', component: ChangeInfoComponent},
     {path: 'lista-inventario', component: PharmacyInventaryComponent},
     {path: 'registro-inventario', component: PharmacyAddMedicineComponent},
     {path: 'datos-mecidina/:id', component: PharmacyPreviewMedicineComponent}

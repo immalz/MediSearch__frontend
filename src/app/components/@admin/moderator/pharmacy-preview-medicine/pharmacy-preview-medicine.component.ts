@@ -48,7 +48,8 @@ export class PharmacyPreviewMedicineComponent implements OnInit {
       if (result.value) {
         this.ms.deleteMedicine(id).subscribe(
           (res) => {
-            this.router.navigate(['/admin/dashboard/lista-inventario']);
+            console.log(res);
+            this.router.navigate(['/farmacia/dashboard/lista-inventario']);
           },
           (err) => {
             console.log(err);
@@ -73,10 +74,12 @@ export class PharmacyPreviewMedicineComponent implements OnInit {
       this.ms.updateMedicine(this.id, name.value, category.value, type.value, price.value)
         .subscribe(
           res => {
-            this.router.navigate(['/admin/dashboard/lista-inventario']);
+            console.log(res);
+            this.router.navigate(['/farmacia/dashboard/lista-inventario']);
           },
           err => { console.log(err); }
         );
     });
   }
 }
+

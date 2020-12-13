@@ -7,10 +7,10 @@
         <h1 class="animated fadeIn">ACTUALIZAR MEDICINA</h1>
         <form (submit)="updateMedicine(name, category, type, price)">
             <div class="ipnt">
-                <input type="text" #name class="form-control" [value]="medicine.name" required>
-                <input type="text" #category class="form-control" [value]="medicine.category" required>
-                <input type="text" #type class="form-control" [value]="medicine.type" required>
-                <input type="number" #price class="form-control" [value]="medicine.price" required>
+                <input type="text" #name class="form-control" [value]="medicine.name" placeholder="nombre" required>
+                <input type="text" #category class="form-control" [value]="medicine.category" placeholder="categoria" required>
+                <input type="text" #type class="form-control" [value]="medicine.type" placeholder="tipo" required>
+                <input type="number" #price class="form-control" [value]="medicine.price" placeholder="precio" required>
             </div>
 
             <div class="img">

@@ -18,26 +18,31 @@ export class CartService {
   constructor() { }
   addProductToCart(product): any {
     let exists = false;
-    const parsedPrice = parseFloat(product.price.replace(/\./g, '').replace(',', '.'));
+
+    const parsedPrice = product.price;
+
+    console.log(product);
+
     this.cartTotal += parsedPrice;
+
     // Search this product on the cart and increment the quantity
     this.products = this.products.map(result => {
-      if (result.product.id === product.id) {
+      if (result.product._id === product._id) {
         result.quantity++;
         exists = true;
       }
       return result;
     });
-    // Add a new product to the cart if it's a new product
-    if (!exists) {
-      product.parsedPrice = parsedPrice;
-      this.products.push({
-        product,
-        quantity: 1
-      });
-    }
+    // // Add a new product to the cart if it's a new product
+    // if (!exists) {
+    //   product.parsedPrice = parsedPrice;
+    //   this.products.push({
+    //     product,
+    //     quantity: 1
+    //   });
+    // }
 
-    this.productAddedSource.next({ products: this.products, cartTotal: this.cartTotal });
+    // this.productAddedSource.next({ products: this.products, cartTotal: this.cartTotal });
   }
 
   deleteProductFromCart(product): any {

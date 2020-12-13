@@ -12,6 +12,8 @@ export class AuthService {
 
   private URL = 'http://localhost:4000/api/auth';
 
+  private pharmURL = 'http://localhost:4000/api/farmacias';
+
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(user: User): any {
@@ -21,6 +23,11 @@ export class AuthService {
   signIn(user: User): any {
     return this.http.post<any>(this.URL + '/signin', user);
   }
+
+  signUpPharm(pharm): any {
+    return this.http.post<any>(this.pharmURL, pharm);
+  }
+
   signInPharm(pharm): any {
     return this.http.post<any>(this.URL + '/signin/pharmacy', pharm);
   }
@@ -28,6 +35,7 @@ export class AuthService {
   getRol(): any {
     return localStorage.getItem('rol');
   }
+
   loggedIn(): boolean{
     return !!localStorage.getItem('token');
   }
@@ -49,6 +57,7 @@ export class AuthService {
     localStorage.removeItem('_id');
     localStorage.removeItem('email');
     localStorage.removeItem('rol');
+    localStorage.removeItem('name');
   }
 }
 

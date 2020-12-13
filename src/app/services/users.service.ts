@@ -22,6 +22,14 @@ export class UsersService {
     return this.http.get<any>(this.URL + `/${id}`);
   }
 
+  getLastUser(): any {
+    return this.http.get<any>(this.URL + '/last');
+  }
+
+  getLastPharm(): any {
+    return this.http.get<any>(this.pharmURL + '/last');
+  }
+
   getPharmacy(): any {
     return this.http.get(this.pharmURL);
   }

@@ -33,6 +33,7 @@ export class LoginPharmsComponent implements OnInit {
           localStorage.setItem('_id', res.PharmacyFound._id);
           localStorage.setItem('email', res.PharmacyFound.email);
           localStorage.setItem('rol', res.PharmacyFound.roles[0].name);
+          localStorage.setItem('name', res.PharmacyFound.name);
 
           if (res.PharmacyFound.roles[0].name === 'admin') {
             this.router.navigate(['/admin/dashboard']);

@@ -21,6 +21,7 @@
 
 li a {
     margin: 10px 0 !important;
+    cursor: pointer;
 }
 
 .mat-form-field+.mat-form-field {
@@ -30,4 +31,10 @@ li a {
 .sidebar h6 {
     margin: 20px;
     font-size: 15px;
+}
+
+.botones {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
