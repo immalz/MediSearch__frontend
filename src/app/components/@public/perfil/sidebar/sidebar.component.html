@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div>
-        <h6>ADMINISTRAR</h6>
-        <img src="assets/images/user.png" class="perfil">
+        <h6>{{UserInfo.username | uppercase}}</h6>
+        <img [src]="UserInfo.imgURL || 'assets/images/user.png'" class="perfil">
         <ng-container>
             <mat-accordion>
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">

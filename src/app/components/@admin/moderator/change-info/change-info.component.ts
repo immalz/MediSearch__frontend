@@ -86,24 +86,3 @@ export class ChangeInfoComponent implements OnInit {
     );
 }
 }
-/*
-this.authService.signUpPharm(valueForm)
-      .subscribe(
-        res => {
-          this.router.navigate(['/farmacia/dashboard']);
-          Swal.fire(
-            'Felicidades!',
-            `Se ha actualizado correctamente su información!`,
-            'success'
-          );
-        },
-        err => {
-          Swal.fire(
-            'Lastima!',
-            `Ha ocurrido un error en el proceso y no se ha podido actualizar!`,
-            'error'
-          );
-        }
-      );
-  }
-*/

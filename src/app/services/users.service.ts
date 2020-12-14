@@ -18,24 +18,35 @@ export class UsersService {
     return this.http.get(this.URL + '/count');
   }
 
+  getSingleUser(id: string): any {
+    return this.http.get(`${this.URL}/${id}`);
+  }
+
   getRoles(id: string): any {
     return this.http.get<any>(this.URL + `/${id}`);
   }
-
+  
   getLastUser(): any {
     return this.http.get<any>(this.URL + '/last');
+  }
+
+  updateUser(user, id): any {
+    return this.http.put(`${this.URL}/${id}`, user);
   }
 
   getLastPharm(): any {
     return this.http.get<any>(this.pharmURL + '/last');
   }
-
+  
   getPharmacy(): any {
     return this.http.get(this.pharmURL);
   }
   getPharmacyCount(): any {
     return this.http.get(this.pharmURL + '/count');
   }
+  
+
+
 
   deleteUser(id: string): any {
     return this.http.delete(this.URL + `/${id}`);
