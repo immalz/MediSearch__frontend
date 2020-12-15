@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "medisearch"
+  "defaultProject": "medisearch",
+  "cli": {
+    "analytics": "af34a65d-15d2-49ed-a7db-ae6a135b36ee"
+  }
 }

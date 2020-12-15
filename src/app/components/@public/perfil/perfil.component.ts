@@ -23,22 +23,10 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.zoom = 17;
     this.mapTypeId = 'hybrid';
    }
-   ngOnInit(): void {
-    this.getPhamarcys();
-   }
 
-   getPhamarcys(): any {
-    this.obtenerDatos = this.us.getPharmacy()
-    .subscribe(
-      res => {
-        console.log(res);
-        this.pharmacys = res;
-      },
-        err => { console.log(err); }
-    );
+   ngOnInit(): void {
    }
 
     ngOnDestroy(): void {
-      this.obtenerDatos.unsubscribe();
     }
   }
