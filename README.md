@@ -16,7 +16,7 @@ Este es un proyecto que permite la busqueda de medicinas de forma sencilla.
 
 Clona el proyecto
 ```bash
-git clone https://github.com/caroso1222/angular2-shop
+git clone https://github.com/immalz/MediSearch__frontend.git
 ```
 
 Instalar dependencias npm dentro de la carpeta del proyecto
