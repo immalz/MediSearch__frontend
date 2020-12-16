@@ -20,7 +20,6 @@ export class UpdateInfoComponent implements OnInit {
     this.UpdateUserInfo = this.builder.group({
       username: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required],
       phone: ['', Validators.required],
       address: ['', Validators.required],
       imgURL: ['', Validators.required]
@@ -39,12 +38,11 @@ export class UpdateInfoComponent implements OnInit {
 
         this.UserInfo = res;
 
-        const {username, email, password, phone, address, imgURL} = this.UserInfo;
+        const {username, email, phone, address, imgURL} = this.UserInfo;
 
         this.UpdateUserInfo.patchValue({
           username,
           email,
-          password,
           phone,
           address,
           imgURL

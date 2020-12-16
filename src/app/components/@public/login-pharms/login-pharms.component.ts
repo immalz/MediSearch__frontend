@@ -28,7 +28,7 @@ export class LoginPharmsComponent implements OnInit {
     this.authService.signInPharm(this.signInPharmacy.value)
       .subscribe(
         res => {
-
+          console.log(res);
           localStorage.setItem('token', res.token);
           localStorage.setItem('_id', res.PharmacyFound._id);
           localStorage.setItem('email', res.PharmacyFound.email);

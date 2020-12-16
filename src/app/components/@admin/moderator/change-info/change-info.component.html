@@ -20,16 +20,16 @@
                 </p>
                 <p>
                     <mat-form-field appearance="legacy">
-                        <mat-label>Correo</mat-label>
-                        <input formControlName="email" type="email" matInput placeholder="Correo Electronico" autocomplete="off">
-                        <mat-icon matSuffix>alternate_email</mat-icon>
+                        <mat-label>Razon Social</mat-label>
+                        <input formControlName="razonSocial" type="text" matInput placeholder="Contraseña" autocomplete="off">
+                        <mat-icon matSuffix>supervised_user_circle</mat-icon>
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="legacy">
-                        <mat-label>Contraseña</mat-label>
-                        <input formControlName="password" type="password" matInput placeholder="Contraseña" autocomplete="off">
-                        <mat-icon matSuffix>vpn_key</mat-icon>
+                        <mat-label>Correo</mat-label>
+                        <input formControlName="email" type="email" matInput placeholder="Correo Electronico" autocomplete="off">
+                        <mat-icon matSuffix>alternate_email</mat-icon>
                     </mat-form-field>
                 </p>
                 <!----------------------------------------------->
@@ -42,14 +42,6 @@
                 </p>
             </div>
             <div>
-                <p>
-                    <mat-form-field appearance="legacy">
-                        <mat-label>Razon Social</mat-label>
-                        <input formControlName="razonSocial" type="text" matInput placeholder="Contraseña" autocomplete="off">
-                        <mat-icon matSuffix>supervised_user_circle</mat-icon>
-                    </mat-form-field>
-                </p>
-
                 <p>
                     <mat-form-field appearance="legacy">
                         <mat-label>Gerente</mat-label>
@@ -81,15 +73,16 @@
                         <mat-icon matSuffix>edit_location</mat-icon>
                     </mat-form-field>
                 </p>
+                <p>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Imagen Referencial</mat-label>
+                        <input type="text" formControlName="imgURL" matInput placeholder="https://www.miimagen.jpg" autocomplete="off">
+                        <mat-icon matSuffix>photo_library</mat-icon>
+                    </mat-form-field>
+                </p>
             </div>
         </div>
-        <p>
-            <mat-form-field appearance="legacy">
-                <mat-label>Imagen Referencial</mat-label>
-                <input type="text" formControlName="imgURL" matInput placeholder="https://www.miimagen.jpg" autocomplete="off">
-                <mat-icon matSuffix>photo_library</mat-icon>
-            </mat-form-field>
-        </p>
+
         <button type="button" (click)="getInfo()" [disabled]="signUpPharmacy.valid" mat-raised-button class="btn-block obtener">Obtener Datos</button>
         <button [disabled]="signUpPharmacy.invalid" type="submit" mat-raised-button color="primary" class="btn-block">Actualizar</button>
     </form>

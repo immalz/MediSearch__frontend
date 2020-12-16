@@ -22,7 +22,6 @@ export class ChangeInfoComponent implements OnInit {
       name: ['', Validators.required],
       nameOwner: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required],
       RUC: ['', Validators.required],
       phone: ['', Validators.required],
       razonSocial: ['', Validators.required],
@@ -44,13 +43,12 @@ export class ChangeInfoComponent implements OnInit {
       res => {
         this.infoPharmacy = res;
 
-        const {name, nameOwner, email, password, RUC, phone, razonSocial, address, latitude, longitude, imgURL} = this.infoPharmacy;
+        const {name, nameOwner, email, RUC, phone, razonSocial, address, latitude, longitude, imgURL} = this.infoPharmacy;
 
         this.signUpPharmacy.patchValue({
           name,
           nameOwner,
           email,
-          password,
           RUC,
           phone,
           razonSocial,

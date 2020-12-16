@@ -21,6 +21,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.finish = this.us.getUsers()
       .subscribe(
         res => {
+          console.log(res);
           this.Users = res;
         },
         err => { console.log(err); }
