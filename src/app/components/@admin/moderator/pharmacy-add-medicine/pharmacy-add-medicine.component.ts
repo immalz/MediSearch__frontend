@@ -22,6 +22,9 @@ export class PharmacyAddMedicineComponent implements OnInit {
     category: '',
     type: '',
     price: 0,
+    unitPackage: 0,
+    condition: '',
+    maker: '',
   };
 
   id: string;
@@ -50,16 +53,16 @@ export class PharmacyAddMedicineComponent implements OnInit {
   uploadMedicine(): any {
 
     this.id = localStorage.getItem('_id');
-
     this.ms.createMedicine(this.medicine, this.file, this.id)
       .subscribe(
         res => {
-          this.router.navigate(['/farmacia/dashboard/lista-inventario']);
+          console.log(res);
           Swal.fire(
             'Felicidades!',
             `La medicina ${this.medicine.name} se ha añadido con exito!`,
             'success'
-          );
+            );
+            this.router.navigate(['/farmacia/dashboard/lista-inventario']);
         },
         err => {
           Swal.fire(

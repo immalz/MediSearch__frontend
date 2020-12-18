@@ -25,8 +25,23 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="legacy">
-                    <mat-label>Precio</mat-label>
+                    <mat-label>Condición</mat-label>
+                    <input matInput type="text" name="condition" [(ngModel)]="medicine.condition" placeholder="Condición" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Precio Unitario</mat-label>
                     <input matInput type="number" name="price" [(ngModel)]="medicine.price" placeholder="S/" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Precio Paquete</mat-label>
+                    <input matInput type="number" name="unit_package" [(ngModel)]="medicine.unit_package" placeholder="S/" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Laboratorio</mat-label>
+                    <input matInput type="text" name="maker" [(ngModel)]="medicine.maker" placeholder="Laboratorio" required>
                 </mat-form-field>
             </div>
 

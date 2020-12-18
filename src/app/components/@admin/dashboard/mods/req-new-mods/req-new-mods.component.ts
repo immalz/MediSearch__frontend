@@ -47,19 +47,15 @@ export class ReqNewModsComponent implements OnInit, OnDestroy {
     this.as.signUpPharm(req)
         .subscribe(
           res => {
-            this.router.navigate(['/admin/dashboard/lista-moderadores']);
             Swal.fire(
               'Felicidades!',
               `La farmacia ${req.name} se ha registrado satisfactoriamente!`,
               'success'
-            );
+              );
+            this.router.navigate(['/admin/dashboard/lista-moderadores']);
           },
           err => {
-            Swal.fire(
-              'Lastima!',
-              `La farmacia ${req.name} no se ha podido registrar!`,
-              'error'
-            );
+            console.log(err);
           }
         );
     this.deny(req._id);

@@ -5,12 +5,15 @@
 <ng-template #medicine_content>
     <main class="main">
         <h1 class="animated fadeIn">ACTUALIZAR MEDICINA</h1>
-        <form (submit)="updateMedicine(name, category, type, price)">
+        <form (submit)="updateMedicine(name, category, type, price, unitPackage, condition, maker)">
             <div class="ipnt">
                 <input type="text" #name class="form-control" [value]="medicine.name" placeholder="nombre" required>
                 <input type="text" #category class="form-control" [value]="medicine.category" placeholder="categoria" required>
                 <input type="text" #type class="form-control" [value]="medicine.type" placeholder="tipo" required>
+                <input type="text" #maker class="form-control" [value]="medicine.maker" placeholder="laboratorio" required>
+                <input type="text" #condition class="form-control" [value]="medicine.condition" placeholder="condicion" required>
                 <input type="number" #price class="form-control" [value]="medicine.price" placeholder="precio" required>
+                <input type="unitPackage" #unitPackage class="form-control" [value]="medicine.unitPackage" placeholder="precio por caja" required>
             </div>
 
             <div class="img">

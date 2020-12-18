@@ -12,6 +12,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatBadgeModule,
         MatMenuModule,
         MatExpansionModule,
-        MatDialogModule
+        MatDialogModule,
+        MatSelectModule
     ],
     exports: [
         MatIconModule,
@@ -41,7 +43,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatBadgeModule,
         MatMenuModule,
         MatExpansionModule,
-        MatDialogModule
+        MatDialogModule,
+        MatSelectModule
     ]
 })
 

@@ -25,6 +25,7 @@ export class PharmacyPreviewMedicineComponent implements OnInit {
       this.id = params[`id`];
       this.ms.getMedicine(this.id).subscribe(
         (res) => {
+          console.log(res);
           this.medicine = res;
         },
         (err) => {
@@ -65,21 +66,29 @@ export class PharmacyPreviewMedicineComponent implements OnInit {
   }
 
   // tslint:disable-next-line: max-line-length
-  updateMedicine(name: HTMLInputElement, category: HTMLInputElement, type: HTMLInputElement, price: HTMLInputElement): any {
-    Swal.fire(
-      'Actualizado!',
-      'El medicamento ha sido actualizado correctamente',
-      'success'
-    ).then(result => {
-      this.ms.updateMedicine(this.id, name.value, category.value, type.value, price.value)
+  updateMedicine(name: HTMLInputElement, category: HTMLInputElement, type: HTMLInputElement, price: HTMLInputElement, unitPackage: HTMLInputElement, condition: HTMLInputElement, maker: HTMLInputElement): any {
+      this.ms.updateMedicine(
+        this.id,
+        name.value,
+        category.value,
+        type.value,
+        price.value,
+        unitPackage.value,
+        condition.value,
+        maker.value
+        )
         .subscribe(
           res => {
             console.log(res);
+            Swal.fire(
+              'Actualizado!',
+              'El medicamento ha sido actualizado correctamente',
+              'success'
+            );
             this.router.navigate(['/farmacia/dashboard/lista-inventario']);
           },
           err => { console.log(err); }
         );
-    });
   }
 }
 

@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class PreviewMedicineComponent implements OnInit {
   id: string;
-  imagePath = 'http://localhost:4000/';
+  imagePath = 'https://medisearch-backend.herokuapp.com/';
   medicine: Medicina;
 
   constructor(
@@ -34,50 +34,50 @@ export class PreviewMedicineComponent implements OnInit {
     });
   }
 
-  deleteMedicine(id: string): any {
-    Swal.fire({
-      title: `¿Seguro que deseas eliminar: ${this.medicine.name}?`,
-      text: 'La eliminació es irreversible',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, eliminar!',
-      cancelButtonText: 'Cancelar',
-    }).then((result) => {
-      if (result.value) {
-        this.ms.deleteMedicine(id).subscribe(
-          (res) => {
-            this.router.navigate(['/admin/dashboard/lista-inventario']);
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
-        Swal.fire(
-          'Eliminado!',
-          'El medicamento ha sido eliminado correctamente',
-          'success'
-        );
-      }
-    });
-  }
+  // deleteMedicine(id: string): any {
+  //   Swal.fire({
+  //     title: `¿Seguro que deseas eliminar: ${this.medicine.name}?`,
+  //     text: 'La eliminació es irreversible',
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Si, eliminar!',
+  //     cancelButtonText: 'Cancelar',
+  //   }).then((result) => {
+  //     if (result.value) {
+  //       this.ms.deleteMedicine(id).subscribe(
+  //         (res) => {
+  //           this.router.navigate(['/admin/dashboard/lista-inventario']);
+  //         },
+  //         (err) => {
+  //           console.log(err);
+  //         }
+  //       );
+  //       Swal.fire(
+  //         'Eliminado!',
+  //         'El medicamento ha sido eliminado correctamente',
+  //         'success'
+  //       );
+  //     }
+  //   });
+  // }
 
-  // tslint:disable-next-line: max-line-length
-  updateMedicine(name: HTMLInputElement, category: HTMLInputElement, type: HTMLInputElement, price: HTMLInputElement): any {
-    Swal.fire(
-      'Actualizado!',
-      'El medicamento ha sido actualizado correctamente',
-      'success'
-    ).then(result => {
-      this.ms.updateMedicine(this.id, name.value, category.value, type.value, price.value)
-        .subscribe(
-          res => {
-            console.log(res);
-            this.router.navigate(['/admin/dashboard/lista-inventario']);
-          },
-          err => { console.log(err); }
-        );
-    });
-  }
+  // // tslint:disable-next-line: max-line-length
+  // updateMedicine(name: HTMLInputElement, category: HTMLInputElement, type: HTMLInputElement, price: HTMLInputElement): any {
+  //   Swal.fire(
+  //     'Actualizado!',
+  //     'El medicamento ha sido actualizado correctamente',
+  //     'success'
+  //   ).then(result => {
+  //     this.ms.updateMedicine(this.id, name.value, category.value, type.value, price.value)
+  //       .subscribe(
+  //         res => {
+  //           console.log(res);
+  //           this.router.navigate(['/admin/dashboard/lista-inventario']);
+  //         },
+  //         err => { console.log(err); }
+  //       );
+  //   });
+  // }
 }

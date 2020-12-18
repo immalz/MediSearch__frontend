@@ -2,8 +2,11 @@ interface Medicine {
     name: string;
     category: string;
     company?: string;
-    type: string;
+    type: any;
     price: any;
+    unitPackage?: any;
+    maker?: string;
+    condition?: string;
     imgURL?: File;
 }
 

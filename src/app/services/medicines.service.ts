@@ -16,7 +16,10 @@ export class MedicinesService {
     fd.append('name', medicine.name);
     fd.append('category', medicine.category);
     fd.append('type', medicine.type);
+    fd.append('maker', medicine.maker);
+    fd.append('unit_package', medicine.unitPackage);
     fd.append('price', medicine.price);
+    fd.append('condition', medicine.condition);
     fd.append('imgURL', imgURL);
 
     return this.http.post(`${this.URL}/${id}`, fd);
@@ -49,8 +52,9 @@ export class MedicinesService {
     return this.http.get(this.URL + `/searchMedicine/${name}`);
   }
 
-  updateMedicine(id: string, name: string, category: string, type: string, price: string): any {
-    return this.http.put(`${this.URL}/${id}`, {name, category, type, price});
+  // tslint:disable-next-line: max-line-length
+  updateMedicine(id: string, name: string, category: string, type: string, price: string, unitPackage: string, condition: string, maker: string): any {
+    return this.http.put(`${this.URL}/${id}`, {name, category, type, price, unitPackage, condition, maker});
   }
 
 }
